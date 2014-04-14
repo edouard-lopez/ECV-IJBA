@@ -27,6 +27,18 @@ default: france-epci-100m-shp.zip gironde-odt_epci2014-shp.zip
 get-contours-france: tmp/france-epci-100m-shp.zip
 get-contours-gironde: tmp/gironde-odt_epci2014-shp.zip
 convert2geojson: tmp/gironde-epci.geo.json
+convert2topojson: tmp/gironde-epci.topo.json
+
+# @alias: convert2topojson
+# Convert from GeoJSON to TopoJSON
+tmp/gironde-epci.topo.json:
+	@printf "Convert...\n\tGeoJSON → TopoJSON\n"
+	@topojson \
+		--id-property FIRST_TITR \
+		-p TITRE_EPCI -p FIRST_TITR -p FIRST_PAYS \
+		tmp/gironde-epci.geo.json \
+	| underscore print > tmp/gironde-epci.topo.json
+
 # @alias: convert2geojson
 # Convert from Shapefile to TopoJSON
 tmp/gironde-epci.geo.json:
