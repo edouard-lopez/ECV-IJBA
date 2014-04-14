@@ -29,7 +29,7 @@ get-contours-gironde: gironde-odt_epci2014-shp.zip
 get-contours-france: tmp/france-epci-100m-shp.zip
 get-contours-gironde: tmp/gironde-odt_epci2014-shp.zip
 convert2geojson: tmp/*/gironde-epci.json
-# @alias: get-contours-france
+# @alias: get-contours-gironde
 # EPCI de Gironde
 # @source: http://catalogue.datalocale.fr/fr/dataset/odt_cg_epci2014
 # @format: Shapefile
