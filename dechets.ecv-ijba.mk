@@ -79,4 +79,4 @@ install:
 	sudo apt-get install gdal-{bin,contrib}
 	npm install topojson generator-leaflet underscore
 	yo leaflet
-	bower install d3 
+	bower install d3 topojson
