@@ -20,11 +20,9 @@ today=$(shell date '+%Y-%m-%d')
 contours-france=contours-france-EPCI
 contours-gironde=contours-gironde-EPCI
 
-# .PHONY: all
-# all: france-epci-100m-shp.zip gironde-odt_epci2014-shp.zip
 
-get-contours-france: france-epci-100m-shp.zip
-get-contours-gironde: gironde-odt_epci2014-shp.zip
+.PHONY: default
+default: france-epci-100m-shp.zip gironde-odt_epci2014-shp.zip
 
 get-contours-france: tmp/france-epci-100m-shp.zip
 get-contours-gironde: tmp/gironde-odt_epci2014-shp.zip
