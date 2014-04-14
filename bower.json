@@ -1,0 +1,8 @@
+{
+  "name": "itineraire-dechets",
+  "version": "0.0.0",
+  "dependencies": {
+    "topojson": "~1.6.7",
+    "jquery": "~2.1.0"
+  }
+}

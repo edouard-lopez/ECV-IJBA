@@ -77,6 +77,7 @@ ${contours-gironde}:
 install: 
 	@printf "Install (Ubuntu)...\n"
 	sudo apt-get install gdal-{bin,contrib}
-	npm install topojson generator-leaflet underscore
+	sudo npm install -g topojson underscore gulp
+	npm install --save-dev topojson generator-leaflet underscore gulp
 	yo leaflet
-	bower install d3 topojson
+	bower install --save d3 topojson
