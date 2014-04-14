@@ -74,10 +74,13 @@ ${contours-france}:
 ${contours-gironde}: 
 	mkdir ${contours-gironde}/
 
+# gulp: https://github.com/gulpjs/gulp/blob/master/docs/getting-started.md#getting-started
+# leaflet: https://www.npmjs.org/package/generator-leaflet
 install: 
-	@printf "Install (Ubuntu)...\n"
+	@printf "Installing system-wide (Ubuntu)...\n"
 	sudo apt-get install gdal-{bin,contrib}
 	sudo npm install -g topojson underscore gulp
+	@printf "Install project-wide (Ubuntu)...\n"
 	npm install --save-dev topojson generator-leaflet underscore gulp
 	yo leaflet
 	bower install --save d3 topojson
