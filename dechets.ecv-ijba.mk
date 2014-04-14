@@ -42,6 +42,7 @@ tmp/gironde-epci.topo.json:
 # @alias: convert2geojson
 # Convert from Shapefile to TopoJSON
 tmp/gironde-epci.geo.json:
+	@printf "Convert...\n\tShapefile → GeoJSON\n"
 	ogr2ogr \
 		-f GeoJSON tmp/gironde-epci.geo.json \
 		${contours-gironde}/*/*.shp
@@ -74,5 +75,8 @@ ${contours-gironde}:
 	mkdir ${contours-gironde}/
 
 install: 
+	@printf "Install (Ubuntu)...\n"
 	sudo apt-get install gdal-{bin,contrib}
-	sudo npm install -g topojson
+	npm install topojson generator-leaflet underscore
+	yo leaflet
+	bower install d3 
