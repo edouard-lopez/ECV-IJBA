@@ -12,7 +12,7 @@ This makefile requires GNU Make.
 endif
 
 # force use of Bash
-# SHELL := /bin/bash
+SHELL := /bin/bash
 
 
 # function
