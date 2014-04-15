@@ -36,6 +36,8 @@ tmp/gironde-epci.topo.json:
 	@topojson \
 		--id-property FIRST_TITR \
 		-p TITRE_EPCI -p FIRST_TITR -p FIRST_PAYS \
+		--quantization 1e4 \
+		--simplify-proportion 0.025 \
 		tmp/gironde-epci.geo.json \
 	| underscore print > tmp/gironde-epci.topo.json
 
