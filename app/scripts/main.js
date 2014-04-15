@@ -30,9 +30,18 @@
 		var path = d3.geo.path().projection(projectPoint);
 
 
-		var feature = g.selectAll('path')
+		var feature = g.selectAll('.entity')
 			.data(topojson.feature(collection, collection.objects['gironde-epci.geo']).features)
-			.enter().append('path');
+			.enter()
+				.append('path')
+				.attr('class', 'entity')
+			;
+		var label = g.selectAll('.entity-label')
+			.data(topojson.feature(collection, collection.objects['gironde-epci.geo']).features)
+			.enter()
+				.append('text')
+				.attr('class', 'entity-label')
+			;
 
 		map.on('viewreset', reset);
 		reset();
@@ -50,12 +59,33 @@
 			g.attr('transform', 'translate(' + -bottomLeft[0] + ',' + -topRight[1] + ')');
 			
 			feature.attr('d', path);
+
+			label.attr('id', function (d) { return d.id; })
+				.attr('class', 'entity-label')
+				.attr('transform', function (d) { return 'translate(' + path.centroid(d) + ')'; })
+				.attr('x', -20)
+				.attr('dy', '.35em')
+				.text(function (d) { return toProperCase(d.id); })
+			;
 		}
+
+		/*
+			Preserve keywords (CUB, COBAN, COBAS, CDC) in uppercase.
+			@return {string}
+		 */
+		function toProperCase(str) {
+			var pc =  str.replace(/\w\S*/g, function (s) {
+				return s.charAt(0).toUpperCase() + s.substr(1).toLowerCase();
+			});
+			return pc.replace(/cub|coban|cobas|cdc/i, function (m) {
+				return m.toUpperCase();
+			});
+		};
 
 		// Use Leaflet to implement a D3 geographic projection.
 		function projectPoint(x) {
 			var point = map.latLngToLayerPoint(new L.LatLng(x[1], x[0]));
 			return [point.x, point.y];
-		} 
+		}
 	});
 }(window, document, L));
