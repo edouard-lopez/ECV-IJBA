@@ -3,8 +3,8 @@
 
 	/* create leaflet map */
 	var map = L.map('map', {
-		center: [52.5377, 13.3958],
-		zoom: 4
+		center: [44.8997, -0.8157],
+		zoom: 9
 	});
 
 	/* add default stamen tile layer */
