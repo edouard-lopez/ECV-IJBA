@@ -30,6 +30,7 @@ get-liste-centre: tmp/gironde-liste-centre.geo.json
 extract-epci-id: tmp/centre-id.csv
 convert2geojson: tmp/gironde-epci.geo.json
 convert2topojson: tmp/gironde-epci.topo.json
+extract-adresse-centre: tmp/liste-adresse-centre.csv
 
 # @alias: convert2topojson
 # Convert from GeoJSON to TopoJSON
@@ -63,6 +64,15 @@ tmp/centre-id.csv:
 		| sed 's/Œ/oe/g' \
 		| tr "[A-Z]" "[a-z]" \
 	> tmp/epci-id.csv
+
+# @alias: extract-adresse-centre
+# $4:Label, $7:MOA, $8-9:Adresse 1-2,$10:CodePostal
+# $9 is often empty
+tmp/liste-adresse-centre.csv:
+	@printf "Extracting...\n\tCentres data (label, MOA, adresse, CP)\n"
+	awk 'BEGIN {FS=OFS=";"} NR>1{print $$4,$$7,$$8,$$9,$$10,$$43,$$44}' \
+		tmp/Opendata-Decheteries-v2.csv > tmp/liste-adresse-centre.csv
+
 # @alias: get-liste-centre
 # liste des centres de traitement des déchets de la Gironde
 # Data are malformed, need human Liste des centres
