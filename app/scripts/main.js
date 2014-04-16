@@ -58,10 +58,12 @@
 
 			g.attr('transform', 'translate(' + -bottomLeft[0] + ',' + -topRight[1] + ')');
 			
-			feature.attr('d', path);
+			feature.attr('d', path)
+				.attr('class', function (d) { return 'entity-label ' + idify(d.id); })
+			;
 
-			label.attr('id', function (d) { return d.id; })
-				.attr('class', 'entity-label')
+			label.attr('id', function (d) { return idify(d.id); })
+				.attr('class', function (d) { return 'entity-label ' + idify(d.id); })
 				.attr('transform', function (d) { return 'translate(' + path.centroid(d) + ')'; })
 				.attr('x', -20)
 				.attr('dy', '.35em')
@@ -69,18 +71,6 @@
 			;
 		}
 
-		/*
-			Preserve keywords (CUB, COBAN, COBAS, CDC) in uppercase.
-			@return {string}
-		 */
-		function toProperCase(str) {
-			var pc =  str.replace(/\w\S*/g, function (s) {
-				return s.charAt(0).toUpperCase() + s.substr(1).toLowerCase();
-			});
-			return pc.replace(/cub|coban|cobas|cdc/i, function (m) {
-				return m.toUpperCase();
-			});
-		};
 
 		// Use Leaflet to implement a D3 geographic projection.
 		function projectPoint(x) {

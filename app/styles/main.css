@@ -51,3 +51,14 @@ path:hover {
   fill-opacity: .7;
 }
 
+.cdc-du-creonnais {
+	fill: red;
+}
+
+path.cdc-du-creonnais {
+}
+text.cdc-du-creonnais {
+	font-weight: bold;
+	color: #ffa500;
+	stroke-color: #ffa500;
+}
