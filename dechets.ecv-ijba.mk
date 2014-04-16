@@ -26,6 +26,7 @@ default: france-epci-100m-shp.zip gironde-odt_epci2014-shp.zip
 
 get-contours-france: tmp/france-epci-100m-shp.zip
 get-contours-gironde: tmp/gironde-odt_epci2014-shp.zip
+get-liste-centre: tmp/gironde-liste-centre.geo.json
 extract-epci-id: tmp/centre-id.csv
 convert2geojson: tmp/gironde-epci.geo.json
 convert2topojson: tmp/gironde-epci.topo.json
@@ -62,6 +63,14 @@ tmp/centre-id.csv:
 		| sed 's/Œ/oe/g' \
 		| tr "[A-Z]" "[a-z]" \
 	> tmp/epci-id.csv
+# @alias: get-liste-centre
+# liste des centres de traitement des déchets de la Gironde
+# Data are malformed, need human Liste des centres
+tmp/gironde-liste-centre.geo.json:
+	@printf "Fetching...\n\tGironde GIS data\n"
+	@curl --output tmp/gironde-liste-centre.geo.json http://catalogue.datalocale.fr/geoserver/datalocale/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=odt_det_decheteries&outputFormat=json
+	# http://www.datalocale.fr/drupal7/sites/default/files/ressources/Opendata_Decheteries_v2.csv
+
 # @alias: get-contours-gironde
 # EPCI de Gironde
 # @source: http://catalogue.datalocale.fr/fr/dataset/odt_cg_epci2014
