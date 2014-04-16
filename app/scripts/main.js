@@ -24,25 +24,25 @@
 
 	var svg = d3.select(map.getPanes().overlayPane).append('svg'),
 	g = svg.append('g').attr('class', 'leaflet-zoom-hide');
+	var path, feature, label, centre;
 
 	d3.json('scripts/gironde-epci.topo.json', function (collection) {
 		var bounds = d3.geo.bounds(topojson.feature(collection, collection.objects['gironde-epci.geo']));
-		var path = d3.geo.path().projection(projectPoint);
+		path = d3.geo.path().projection(projectPoint);
 
 
-		var feature = g.selectAll('.entity')
+		feature = g.selectAll('.entity')
 			.data(topojson.feature(collection, collection.objects['gironde-epci.geo']).features)
 			.enter()
 				.append('path')
 				.attr('class', 'entity')
 			;
-		var label = g.selectAll('.entity-label')
+		label = g.selectAll('.entity-label')
 			.data(topojson.feature(collection, collection.objects['gironde-epci.geo']).features)
 			.enter()
 				.append('text')
 				.attr('class', 'entity-label')
 			;
-
 		map.on('viewreset', reset);
 		reset();
 
@@ -64,18 +64,37 @@
 
 			label.attr('id', function (d) { return idify(d.id); })
 				.attr('class', function (d) { return 'entity-label ' + idify(d.id); })
-				.attr('transform', function (d) { return 'translate(' + path.centroid(d) + ')'; })
+				.attr('transform', function (d) {return 'translate(' + path.centroid(d) + ')'; })
 				.attr('x', -20)
 				.attr('dy', '.35em')
 				.text(function (d) { return toProperCase(d.id); })
 			;
 		}
+	});
 
+	// Use Leaflet to implement a D3 geographic projection.
+	function projectPoint(x) {
+	    var point = map.latLngToLayerPoint(new L.LatLng(x[1], x[0]));
+	    return [point.x, point.y];
+	}
 
-		// Use Leaflet to implement a D3 geographic projection.
-		function projectPoint(x) {
-			var point = map.latLngToLayerPoint(new L.LatLng(x[1], x[0]));
-			return [point.x, point.y];
+	d3.csv('scripts/liste-adresse-centre.csv', function (error, dataset) {
+		centre = g.selectAll('.centre')
+			.data(dataset)
+			.enter()
+				.append('circle')
+		;
+		
+		map.on('viewreset', reset);
+		reset();
+
+		function reset() {
+			centre.attr('class', function (d) { return 'entity-label ' + idify(d.MOA); })
+				.attr('r', 3)
+				.attr('cx', function (d) {return projectPoint([d.LON, d.LAT])[0]; })
+				.attr('cy', function (d) { return projectPoint([d.LON, d.LAT])[1]; })
+			;
 		}
 	});
+
 }(window, document, L));
