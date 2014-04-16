@@ -48,7 +48,7 @@ tmp/gironde-epci.topo.json:
 # Convert from Shapefile to TopoJSON
 tmp/gironde-epci.geo.json:
 	@printf "Convert...\n\tShapefile → GeoJSON\n"
-	ogr2ogr \
+	@ogr2ogr \
 		-f GeoJSON tmp/gironde-epci.geo.json \
 		${contours-gironde}/*/*.shp
 
@@ -57,7 +57,7 @@ tmp/gironde-epci.geo.json:
 # Ugly as shit sorry
 tmp/centre-id.csv:
 	@printf "Extracting...\n\tCentres\n"
-	grep id tmp/gironde-epci.topo.json \
+	@grep id tmp/gironde-epci.topo.json \
 		| awk 'BEGIN{FS=":"} /"id":/{print $$2}' \
 		| tr -d '",' | sed 's/^\s//' \
 		| tr " '/" "-" \
