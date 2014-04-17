@@ -68,7 +68,7 @@ tmp/centre-id.csv:
 # @alias: extract-adresse-centre
 # $4:Label, $7:MOA, $8-9:Adresse 1-2,$10:CodePostal
 # $9 is often empty
-tmp/liste-adresse-centre.csv:
+tmp/liste-adresse-centre.csv: tmp tmp/gironde-liste-centre.csv
 	@printf "Extracting...\n\tCentres data (label, MOA, adresse, CP)\n"
 	awk 'BEGIN {FS=OFS=","} {print $$4,$$7,$$8,$$9,$$10,$$43,$$44}' \
 		tmp/gironde-liste-centre.csv > tmp/liste-adresse-centre.csv
@@ -77,7 +77,7 @@ tmp/liste-adresse-centre.csv:
 # liste des centres de traitement des déchets de la Gironde
 # Data are malformed, need human Liste des centres
 # @source: custom https://docs.google.com/spreadsheets/d/1q_Y4zAxmuFZDUQYHJJDS_282HLFDQH-qKNDYRFIsVUU/
-tmp/gironde-liste-centre.csv:
+tmp/gironde-liste-centre.csv: tmp
 	@printf "Fetching...\n\tGironde GIS data\n"
 	@curl --output tmp/gironde-liste-centre.csv https://docs.google.com/spreadsheets/d/1q_Y4zAxmuFZDUQYHJJDS_282HLFDQH-qKNDYRFIsVUU/export?format=csv
 
