@@ -101,7 +101,9 @@
 
 			label.attr('id', function (d) { return idify(d.id); })
 				.attr('class', function (d) { return 'entity-label ' + idify(d.id); })
-				.attr('transform', function (d) {return 'translate(' + path.centroid(d) + ')'; })
+				.attr('transform', function (d) { 
+					// console.log(idify(d.id), pointToProjection(path.centroid(d)));
+					return 'translate(' + path.centroid(d) + ')'; })
 				.attr('x', -20)
 				.attr('dy', '.35em')
 				.text(function (d) { return toProperCase(d.id); })
@@ -114,6 +116,13 @@
 		var point = map.latLngToLayerPoint(new L.LatLng(x[1], x[0]));
 		return [point.x, point.y];
 	}
+
+	// Use Leaflet to implement a D3 geographic projection.
+	function pointToProjection(p) {
+		var projection = map.layerPointToLatLng(new L.point(p[0], p[1]));
+		return [projection.lat, projection.lng];
+	}
+
 
 	d3.csv('scripts/liste-adresse-centre.csv', function (error, dataset) {
 		centre = centres.selectAll('.centre')
