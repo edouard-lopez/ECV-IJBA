@@ -40,7 +40,7 @@ extract-adresse-centre: tmp/liste-adresse-centre.csv
 tmp/routes-dechets.csv: tmp
 	@printf "Fetching...\n\tGironde Trash route data\n"
 	# curl --output tmp/routes-dechets.csv https://docs.google.com/spreadsheet/ccc?key=0As-nq3vZLtSgdHpBeFF6dExwaTZZTFVHcVJERU9CdlE&export?format=csv
-	ln -nfs tmp/routes-dechets.csv app/
+	ln -nf tmp/routes-dechets.csv app/
 
 # @alias: convert2topojson
 # Convert from GeoJSON to TopoJSON
@@ -53,6 +53,7 @@ tmp/gironde-epci.topo.json:
 		--simplify-proportion 0.025 \
 		tmp/gironde-epci.geo.json \
 	| underscore print > tmp/gironde-epci.topo.json
+	ln -nf tmp/gironde-epci.topo.json app/
 
 # @alias: convert2geojson
 # Convert from Shapefile to TopoJSON
@@ -82,6 +83,7 @@ tmp/liste-adresse-centre.csv: tmp tmp/gironde-liste-centre.csv
 	@printf "Extracting...\n\tCentres data (label, MOA, adresse, CP)\n"
 	awk 'BEGIN {FS=OFS=","} {print $$4,$$7,$$8,$$9,$$10,$$43,$$44}' \
 		tmp/gironde-liste-centre.csv > tmp/liste-adresse-centre.csv
+	ln -nf tmp/liste-adresse-centre.csv app/
 
 # @alias: get-liste-centre
 # liste des centres de traitement des déchets de la Gironde
