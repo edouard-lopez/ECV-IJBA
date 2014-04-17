@@ -15,6 +15,8 @@ body,
 html {
 	font-family: Arial, sans-serif;
 	height: 100%;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 
 .map {
@@ -23,28 +25,66 @@ html {
 }
 
 .map-application {
-	height: 100%;
-	padding-top: 50px;
+	width:43%;
+	height:80%;
+	padding-top:85px;
 	}
 header {
 	position: absolute;
 	top: 0;
 	left: 0;
-	height: 50px;
+	height:85px;
 	padding: 15px;
 	z-index: 9;
 	border-bottom: 1px solid #eee;
 	width:100%;
 }
+
+header h2 {
+	text-decoration: underline;
+}
+
 header .appName {
 	float: left;
 }
 
-h3 {
-	display: inline-block;
+header .checkboxes {
+	padding-top: 8px;
+}
+
+header label:first-child {
+	margin: 0;
+}
+
+header label {
+	margin-left:1em;
 }
 
 .appName input {
 	margin-left: 1em;
 	vertical-align: middle;
+}
+
+.compteurs {
+	margin-top: 1em;
+    border-spacing: .5em;
+    border-collapse: separate;
+	text-align: center;
+}
+.compteurs th {
+	font-size: .8em;
+	font-weight: bold;
+	margin: 1em 0;
+	text-transform: uppercase;
+	text-align: center;
+}
+
+.compteurs td {
+	width: 33%;
+	border-radius: .25em;
+	background-clip: padding-box;
+	background-color: #aeaeae;
+	color: #fff;
+	font-size: 2.25em;
+	line-height: 2.25em;
 }

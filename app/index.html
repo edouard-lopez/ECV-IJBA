@@ -7,51 +7,75 @@
 	<meta charset="UTF-8">
 	<title>itineraire-dechets</title>
 	<meta name="description" content="">
-    <meta name="viewport" content="width=device-width">
-    
-    <!-- build:css styles/vendor.css -->
-    <link rel="stylesheet" href="lib/styles/leaflet.css">
-    <!-- bower:css -->
-    <!-- endbower -->
-    <!-- endbuild -->
-    
-    <!-- build:css styles/main.css -->
-    <link rel="stylesheet" href="styles/main.css">
-    <link rel="stylesheet" href="styles/entities.css">
-    <link rel="stylesheet" href="styles/centres.css">
-    <!-- endbuild -->
-    <link rel="shortcut icon" href="/favicon.ico">
+	<meta name="viewport" content="width=device-width">
+	
+	<!-- build:css styles/vendor.css -->
+	<link rel="stylesheet" href="lib/styles/leaflet.css">
+	<!-- bower:css -->
+	<!-- endbower -->
+	<!-- endbuild -->
+	
+	<!-- build:css styles/main.css -->
+	<link rel="stylesheet" href="styles/main.css">
+	<link rel="stylesheet" href="styles/entities.css">
+	<link rel="stylesheet" href="styles/centres.css">
+	<!-- endbuild -->
+	<link rel="shortcut icon" href="/favicon.ico">
 
 </head>
 <body>
 	
   <header class="group">
-     <div class="appName">
-        <h3>Itinéraire Déchets</h3>
-
-        <label for="route">
-            <input type="checkbox" id="route" class="route">
-            <strong>routes</strong>
-        </label>
-        <label for="centre">
-            <input type="checkbox" id="centre" class="centre">
-            <strong>centre</strong>
-        </label>
-        <label for="co2">
-            <input type="checkbox" id="co2" class="co2">
-            <strong>CO<sub>2</sub> (Kg)</strong>
-        </label>
-        <label for="dist">
-            <input type="checkbox" id="dist" class="dist">
-            <strong>Distance (km)</strong>
-        </label>
-    </div>
+	 <div class="appName">
+		<h2>Transport des déchets : quel impact sur notre environnement ?</h2>
+		<div class="checkboxes">
+		<label for="route">
+			<input type="checkbox" id="route" class="route">
+			Trajets
+		</label>
+		<label for="centre">
+			<input type="checkbox" id="centre" class="centre">
+			centre
+		</label>
+		<label for="cdc">
+			<input type="checkbox" id="cdc" class="centre">
+			Communauté de Communes
+		</label>
+		<label for="centre-transfert">
+			<input type="checkbox" id="centre-transfert" class="centre">
+			Centre de Transfert
+		</label>
+		<label for="centre-de-traitement">
+			<input type="checkbox" id="centre-de-traitement" class="centre">
+			Centre de Traitement
+		</label>
+		<label for="co2">
+			<input type="checkbox" id="co2" class="co2">
+			CO<sub>2</sub> (Kg)
+		</label>
+		<label for="dist">
+			<input type="checkbox" id="dist" class="dist">
+			Distance (km)
+		</label>
+		</div>
+	</div>
 </header>
 
 <div class="map-application">
-  <div id="map" class="map"></div>
-</div>
+	<div id="map" class="map"></div>
 
+	<table class="compteurs" summary="Totaux ou valeurs instantanés des mesures">
+		<tr>
+			<th>Distance parcourue</th>
+			<th>Émission de CO<sub>2</sub></th>
+			<th>Tonnes de déchets traités</th>
+		</tr>
+		<tr>
+			<td>90 km</td>
+			<td>180 kg</td>
+			<td>13692</td>
+		</tr>
+	</table>
 
 <!-- build:js scripts/vendor.js -->
 <script src="lib/scripts/leaflet.js"></script>
@@ -62,12 +86,12 @@
 <script src="scripts/jquery.svgdom.min.js"></script>
 <!-- bower:js -->
 <!-- endbower -->
-    <!-- endbuild -->
-    <!-- build:js scripts/main.js -->
-    <script src="scripts/main.js"></script>
-    <script src="scripts/ui.utils.js"></script>
-    <script src="scripts/str.utils.js"></script>
-    <script src="scripts/convert.utils.js"></script>
-    <!-- endbuild -->
+	<!-- endbuild -->
+	<!-- build:js scripts/main.js -->
+	<script src="scripts/main.js"></script>
+	<script src="scripts/ui.utils.js"></script>
+	<script src="scripts/str.utils.js"></script>
+	<script src="scripts/convert.utils.js"></script>
+	<!-- endbuild -->
 </body>
 </html>
