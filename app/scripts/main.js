@@ -140,26 +140,28 @@
 			})
 		;
 
-		for (var i = 0, len = dataset.length - 1; i < len; i++) {
-		// Note: loop until length - 1 since we're getting the next item with i+1
-			links.push({
-				type: 'LineString',
-				coordinates: [
-					[ dataset[i].LON, dataset[i].LAT ],
-					[ dataset[i + 1].LON, dataset[i + 1].LAT ]
-				],
-				lid: idify(dataset[i].MOA)
-			});
-		}
 
-		// Standard enter / update 
-		var routePath = routes.selectAll('.route')
-			.data(links)
-			.enter()
-			.append('path')
-				.attr('d', path)
-				.attr('class', function (d) {return 'route ' + d.lid; })
-		;
+		d3.csv('scripts/routes-dechets.csv', function (error, dataRoutes) {
+
+			// Standard enter / update 
+			var routePath = routes.selectAll('.route')
+				.data(dataRoutes)
+				.enter()
+				.append('path')
+					.attr('d', function (d) {
+						var coordDepart = [ d.lon_depart, d.lat_depart ];
+						var coordArrivee = [ d.lon_arrivee, d.lat_arrivee ];
+						return path({
+							type: 'LineString',
+							coordinates: [
+								coordDepart,
+								coordArrivee
+							]
+						});
+					})
+					.attr('class', function (d) {return 'route ' + idify(d.depart); })
+			;
+		});
 
 		map.on('viewreset', reset);
 		reset();
