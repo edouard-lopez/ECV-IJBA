@@ -22,7 +22,13 @@ contours-gironde=contours-gironde-EPCI
 
 
 .PHONY: default
-default: france-epci-100m-shp.zip gironde-odt_epci2014-shp.zip
+default: tmp/france-epci-100m-shp.zip \
+		 tmp/gironde-odt_epci2014-shp.zip \
+		 tmp/gironde-liste-centre.csv \
+		 tmp/centre-id.csv \
+		 tmp/gironde-epci.geo.json \
+		 tmp/gironde-epci.topo.json \
+		 tmp/liste-adresse-centre.csv
 
 get-contours-france: tmp/france-epci-100m-shp.zip
 get-contours-gironde: tmp/gironde-odt_epci2014-shp.zip
