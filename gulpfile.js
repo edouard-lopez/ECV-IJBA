@@ -57,13 +57,22 @@ gulp.task('images', function () {
         .pipe($.size());
 });
 
+// Data
+gulp.task('data', function () {
+    return gulp.src([
+            'app/scripts/**/*.csv',
+            'app/scripts/**/*.json'])
+        .pipe(gulp.dest('dist/scripts'))
+        .pipe($.size());
+});
+
 // Clean
 gulp.task('clean', function () {
     return gulp.src(['dist/styles', 'dist/scripts', 'dist/images'], { read: false }).pipe($.clean());
 });
 
 // Build
-gulp.task('build', ['html', 'images']);
+gulp.task('build', ['html', 'images', 'data']);
 
 // Default task
 gulp.task('default', ['clean'], function () {
