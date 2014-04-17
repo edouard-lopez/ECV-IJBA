@@ -47,19 +47,19 @@
 
 	var path, entity, label, centre;
 
-	d3.json('scripts/gironde-epci.topo.json', function (collection) {
-		var bounds = d3.geo.bounds(topojson.feature(collection, collection.objects['gironde-epci.geo']));
+	d3.json('scripts/gironde-epci.topo.json', function (dataset) {
+		var bounds = d3.geo.bounds(topojson.feature(dataset, dataset.objects['gironde-epci.geo']));
 		path = d3.geo.path().projection(projectPoint);
 
 
 		entity = entities.selectAll('.entity')
-			.data(topojson.feature(collection, collection.objects['gironde-epci.geo']).features)
+			.data(topojson.feature(dataset, dataset.objects['gironde-epci.geo']).features)
 			.enter()
 				.append('path')
 				.attr('class', 'entity')
 			;
 		label = entitiesLabels.selectAll('.entity-label')
-			.data(topojson.feature(collection, collection.objects['gironde-epci.geo']).features)
+			.data(topojson.feature(dataset, dataset.objects['gironde-epci.geo']).features)
 			.enter()
 				.append('text')
 				.attr('class', 'entity-label')
