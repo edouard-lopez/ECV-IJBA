@@ -18,6 +18,13 @@
     stroke-width: 2;
 }
 
+svg .co2, svg .dist {
+    display: none;
+}
+svg .co2.highlight, svg .dist.highlight {
+    display: inline;
+}
+
 
 /*
     Custom style

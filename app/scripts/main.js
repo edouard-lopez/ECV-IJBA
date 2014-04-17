@@ -161,6 +161,36 @@
 					})
 					.attr('class', function (d) {return 'route ' + idify(d.depart); })
 			;
+
+			var co2Group = routes.append('g').attr('id', 'co2')
+			var co2 = co2Group.selectAll('.co2')
+				.data(dataRoutes)
+				.enter()
+				.append('text')
+					.attr('class', 'co2')
+					.attr('x', -20)
+					.attr('dy', '.35em')
+					.attr('transform', function (d) {return attach(d) })
+					.text(function (d) { return d.co2+'kg'; })
+
+			var distGroup = routes.append('g').attr('id', 'dist')
+			var dist = distGroup.selectAll('.dist')
+				.data(dataRoutes)
+				.enter()
+				.append('text')
+					.attr('class', 'dist')
+					.attr('x', 20)
+					.attr('dy', '.35em')
+					.attr('transform', function (d) {return attach(d) })
+					.text(function (d) { return d.dist+'km'; })
+
+			;
+
+			function attach(d) {
+				var coordDepart = [ d.lon_depart, d.lat_depart ];
+				var coordArrivee = [ d.lon_arrivee, d.lat_arrivee ];
+				return 'translate(' + path.centroid({type: 'LineString', coordinates: [coordDepart, coordArrivee ] }) + ')'; 
+			}
 		});
 
 		map.on('viewreset', reset);
