@@ -17,6 +17,8 @@
     
     <!-- build:css styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/entities.css">
+    <link rel="stylesheet" href="styles/centres.css">
     <!-- endbuild -->
     <link rel="shortcut icon" href="/favicon.ico">
 
@@ -25,7 +27,16 @@
 	
   <header class="group">
      <div class="appName">
-        itineraire-dechets
+        <h3>Itinéraire Déchets</h3>
+
+        <label for="route">
+            <input type="checkbox" id="route" class="route">
+            toggle <strong>routes</strong>
+        </label>
+        <label for="centre">
+            <input type="checkbox" id="centre" class="centre">
+            toggle <strong>centre</strong>
+        </label>
     </div>
 </header>
 
@@ -39,12 +50,16 @@
 <script src="bower_components/jquery/dist/jquery.js"></script>
 <script src="bower_components/d3/d3.js"></script>
 <script src="bower_components/topojson/topojson.js"></script>
+<script src="scripts/jquery.svg.min.js"></script>
+<script src="scripts/jquery.svgdom.min.js"></script>
 <!-- bower:js -->
 <!-- endbower -->
     <!-- endbuild -->
     <!-- build:js scripts/main.js -->
     <script src="scripts/main.js"></script>
+    <script src="scripts/ui.utils.js"></script>
     <script src="scripts/str.utils.js"></script>
+    <script src="scripts/convert.utils.js"></script>
     <!-- endbuild -->
 </body>
 </html>

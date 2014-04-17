@@ -1,0 +1,27 @@
+.centre {
+    fill: #f05c28;
+}
+
+.centre:hover, .centre.highlight {
+    fill: #ffc40a;
+}
+
+
+.route { 
+    fill: none;
+    stroke: none;
+    /*stroke: steelblue;*/
+    stroke-width: 1;
+}
+.route.highlight {
+    stroke: #f05c28;
+    stroke-width: 2;
+}
+
+
+/*
+    Custom style
+*/
+.cdc-medoc-estuaire.centre {
+    fill: #ffc40a; 
+}

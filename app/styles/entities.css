@@ -1,0 +1,37 @@
+path.entity {
+  fill: #000;
+  fill-opacity: .2;
+  stroke: #fff;
+  stroke-width: 1px;
+}
+path.active {
+  fill: #815c84;
+  fill-opacity: .7;
+}
+
+path.cdc-du-creonnais {
+}
+
+
+.entity-label {
+    display: none;
+    font-weight: bold;
+    fill: #333;
+    /*text-anchor: middle;*/
+}
+
+text.entity-label.show {
+    display: inline-block;
+}
+
+/*
+    Custom style
+*/
+.cdc-medoc-estuaire.entity {
+  fill: #815c84;
+  fill-opacity: .7;
+}
+.cdc-medoc-estuaire.entity-label { 
+  display: block;
+  fill: #555;
+}

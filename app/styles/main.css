@@ -16,6 +16,7 @@ html {
 	font-family: Arial, sans-serif;
 	height: 100%;
 }
+
 .map {
 	width: 100%;
 	height: 100%;
@@ -39,26 +40,11 @@ header .appName {
 	float: left;
 }
 
-
-path {
-  fill: #000;
-  fill-opacity: .2;
-  stroke: #fff;
-  stroke-width: 1px;
-}
-path:hover {
-  fill: brown;
-  fill-opacity: .7;
+h3 {
+	display: inline-block;
 }
 
-.cdc-du-creonnais {
-	fill: red;
-}
-
-path.cdc-du-creonnais {
-}
-text.cdc-du-creonnais {
-	font-weight: bold;
-	color: #ffa500;
-	stroke-color: #ffa500;
+.appName input {
+	margin-left: 1em;
+	vertical-align: middle;
 }
