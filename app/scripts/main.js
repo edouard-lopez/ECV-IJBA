@@ -124,28 +124,26 @@
 	}
 
 
-	d3.csv('scripts/liste-adresse-centre.csv', function (error, dataset) {
+		d3.csv('scripts/routes-dechets.csv', function (error, dataset) {
 		centre = centres.selectAll('.centre')
 			.data(dataset)
 			.enter()
 			.append('circle')
 			.on('mouseover', function (d) {
+				d3.select(this).attr('r', props.circle.active);
 				// reset style on others elements
 				d3.selectAll('.route').classed('highlight', false);
 				// apply style to element(s)
-				d3.selectAll('.route.' + idify(d.MOA)).classed('highlight', true);
+				d3.selectAll('.route.' + idify(d.depart)).classed('highlight', true);
 			})
 			.on('mouseout', function () {
 				d3.selectAll('.route').classed('highlight', false);
 			})
 		;
 
-
-		d3.csv('scripts/routes-dechets.csv', function (error, dataRoutes) {
-
 			// Standard enter / update 
 			var routePath = routes.selectAll('.route')
-				.data(dataRoutes)
+				.data(dataset)
 				.enter()
 				.append('path')
 					.attr('d', function (d) {
@@ -159,12 +157,14 @@
 							]
 						});
 					})
-					.attr('class', function (d) {return 'route ' + idify(d.depart); })
+					.attr('class', function (d) { 
+						return 'route ' + idify(d.depart) + ' n' + d.niv_arrivee; 
+					})
 			;
 
 			var co2Group = routes.append('g').attr('id', 'co2')
 			var co2 = co2Group.selectAll('.co2')
-				.data(dataRoutes)
+				.data(dataset)
 				.enter()
 				.append('text')
 					.attr('class', 'co2')
@@ -175,7 +175,7 @@
 
 			var distGroup = routes.append('g').attr('id', 'dist')
 			var dist = distGroup.selectAll('.dist')
-				.data(dataRoutes)
+				.data(dataset)
 				.enter()
 				.append('text')
 					.attr('class', 'dist')
@@ -191,16 +191,18 @@
 				var coordArrivee = [ d.lon_arrivee, d.lat_arrivee ];
 				return 'translate(' + path.centroid({type: 'LineString', coordinates: [coordDepart, coordArrivee ] }) + ')'; 
 			}
-		});
+		// });
 
 		map.on('viewreset', reset);
 		reset();
 
 		function reset() {
-			centre.attr('class', function (d) { return 'centre ' + idify(d.MOA); })
+			centre
+				.attr('class', function (d) { 
+					return 'centre ' + idify(d.depart) + ' n' + d.niv_depart+ ' n' + d.niv_arrivee; })
 				.attr('r', props.circle.default)
-				.attr('cx', function (d) {return projectPoint([d.LON, d.LAT])[0]; })
-				.attr('cy', function (d) { return projectPoint([d.LON, d.LAT])[1]; })
+				.attr('cx', function (d) { return projectPoint([Number(d.lon_depart), Number(d.lat_depart)])[0]; })
+				.attr('cy', function (d) { return projectPoint([Number(d.lon_depart), Number(d.lat_depart)])[1]; })
 			;
 		}
 	});
