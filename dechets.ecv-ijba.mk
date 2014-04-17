@@ -27,10 +27,20 @@ default: france-epci-100m-shp.zip gironde-odt_epci2014-shp.zip
 get-contours-france: tmp/france-epci-100m-shp.zip
 get-contours-gironde: tmp/gironde-odt_epci2014-shp.zip
 get-liste-centre: tmp/gironde-liste-centre.csv
+get-routes-dechets: tmp/routes-dechets.csv
 extract-epci-id: tmp/centre-id.csv
 convert2geojson: tmp/gironde-epci.geo.json
 convert2topojson: tmp/gironde-epci.topo.json
 extract-adresse-centre: tmp/liste-adresse-centre.csv
+
+
+# @alias get-routes-dechets
+# Download data modeling trash itineraries
+# @source: custom https://docs.google.com/spreadsheets/d/0As-nq3vZLtSgdHpBeFF6dExwaTZZTFVHcVJERU9CdlE/?gid=503439189
+tmp/routes-dechets.csv: tmp
+	@printf "Fetching...\n\tGironde Trash route data\n"
+	# curl --output tmp/routes-dechets.csv https://docs.google.com/spreadsheet/ccc?key=0As-nq3vZLtSgdHpBeFF6dExwaTZZTFVHcVJERU9CdlE&export?format=csv
+	ln -nfs tmp/routes-dechets.csv app/
 
 # @alias: convert2topojson
 # Convert from GeoJSON to TopoJSON
