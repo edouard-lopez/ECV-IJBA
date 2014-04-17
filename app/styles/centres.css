@@ -2,9 +2,9 @@
     fill: #f05c28;
 }
 
-.centre:hover, .centre.highlight {
-    fill: #ffc40a;
-}
+.centre.n0:hover, .centre.n0.highlight { fill: #f05c28; }
+.centre.n1:hover, .centre.n1.highlight { fill: #ffc40a; }
+.centre.n2:hover, .centre.n2.highlight { fill: #8bc43d; }
 
 
 .route { 
@@ -12,6 +12,7 @@
     stroke: none;
     /*stroke: steelblue;*/
     stroke-width: 1;
+    marker-end: url(#arw);
 }
 .route.highlight {
     stroke: #f05c28;

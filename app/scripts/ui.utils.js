@@ -10,6 +10,12 @@ $('input.dist').change(function () {
     $('text.dist').toggleClass('highlight');
 });
 
-$('input.centre').change(function () {
-    $('circle.centre').toggleClass('highlight').attr('r', 5);
+$('input.n0').change(function () {
+    $('circle.n0').toggleClass('highlight').attr('r', 5);
+});
+$('input.n1').change(function () {
+    $('circle.n1').toggleClass('highlight').attr('r', 5);
+});
+$('input.n2').change(function () {
+    $('circle.n2').toggleClass('highlight').attr('r', 5);
 });
