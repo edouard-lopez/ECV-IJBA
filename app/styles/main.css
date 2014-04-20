@@ -44,7 +44,7 @@ header h2 {
 	text-decoration: underline;
 }
 
-header .appName {
+header .dechets {
 	float: left;
 }
 
@@ -60,7 +60,7 @@ header label {
 	margin-left:1em;
 }
 
-.appName input {
+.dechets input {
 	margin-left: 1em;
 	vertical-align: middle;
 }
