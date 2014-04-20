@@ -20,16 +20,19 @@
     border-radius: .2em;
     height: 1.1em;
     line-height: 1.1em;
+    transition: padding 1s, color 1s;
 }
- .toggable:checked+span::before 
+ label:hover>.toggable+span::before 
+,.toggable:checked+span::before 
 ,.toggable:disabled+span::before 
 {
     content: 'on ';
-    padding-right: .1em;
-    text-align: right;
+    padding-left: 1.6em;
+    /*padding-right: .1em;*/
+    /*text-align: right;*/
     font-weight: bold;
     text-shadow: none;
-    color: #fff;
+    color: hsl(0, 0%, 100%);
 }
 .toggable:disabled+span::before {
     content: '\f023  ';

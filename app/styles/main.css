@@ -58,13 +58,12 @@ header label {
 	position: absolute;
 	left: -999em;
 }
- .dechets input+.fa-cloud
-,.dechets input+.fa-road 
-,.dechets input+.fa-random 
-	{ color: hsl(0, 0%, 80%); }
- .dechets input:checked+.fa-cloud
-,.dechets input:checked+.fa-road 
-,.dechets input:checked+.fa-random 
+ .dechets input:not(.toggable)+.fa { 
+ 	color: hsl(0, 0%, 80%); 
+ 	transition: color 1s;
+ }
+ .dechets label:hover>input:not(.toggable)+.fa
+,.dechets label 	 >input:not(.toggable):checked+.fa
 	{ color: hsl(0, 0%, 40%); }
 
 .dechets input, label>span::before {
