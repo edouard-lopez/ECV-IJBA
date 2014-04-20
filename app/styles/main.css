@@ -19,16 +19,7 @@ html {
 	-moz-osx-font-smoothing: grayscale;
 }
 
-.map {
-	width: 100%;
-	height: 100%;
-}
 
-.map-application {
-	width:43%;
-	height:80%;
-	padding-top:85px;
-	}
 header {
 	position: absolute;
 	top: 0;
@@ -64,6 +55,27 @@ header label {
 	margin-left: 1em;
 	vertical-align: middle;
 }
+
+.map {
+	width: 100%;
+	height: 100%;
+}
+
+.map-app {
+	/*width:43%;*/
+	width:100%;
+	height:80%;
+	padding-top:85px;
+	float: left;
+}
+.flow-app {
+	/*width:55%;*/
+	height:80%;
+	padding-top:85px;
+	border: thin dashed #00b4db;
+	float: right;
+}
+
 
 .compteurs {
 	margin-top: 1em;
