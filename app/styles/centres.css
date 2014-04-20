@@ -1,5 +1,5 @@
 .centre {
-    fill: #f05c28;
+    fill: hsl(15, 87%, 55%);
 }
 
 .toggable:disabled+span {
@@ -66,10 +66,40 @@ input.traitement+span::before { background: linear-gradient(
     );
 }
 
+ .centre.from-epci:hover
+,.centre.from-epci.highlight 
+,.centre.to-epci:hover
+,.centre.to-epci.highlight 
+{ 
+    fill: hsl(15, 87%, 55%); 
+}
+ .centre.from-transfert:hover
+,.centre.from-transfert.highlight 
+,.centre.to-transfert:hover
+,.centre.to-transfert.highlight 
+{ 
+    fill: hsl(45, 100%, 52%); 
+}
+ .centre.from-traitement:hover
+,.centre.from-traitement.highlight 
+,.centre.to-traitement:hover
+,.centre.to-traitement.highlight 
+{ 
+    fill: hsl(85, 53%, 50%); 
+}
+
 
 .route, marker#arw, .centre > .label {
     opacity:0;
     transition: opacity .5s;
+}
+.centre > circle {}
+.centre > label { 
+    fill: hsl(0, 0%, 100%);
+}
+.centre:hover > .label { 
+    fill: hsl(0, 0%, 0%);
+    opacity:1;
 }
 .route { 
     fill: transparent;
@@ -86,14 +116,20 @@ input.traitement+span::before { background: linear-gradient(
 svg .co2, svg .dist {
     display: none;
 }
-svg .co2.highlight, svg .dist.highlight {
+svg .co2.show, svg .dist.show {
     display: inline;
 }
 
+svg .co2.show {
+    fill: hsl(0, 0%, 60%);
+    text-shadow: 0px 3px 3px hsl(0, 0%, 90%), 3px 0px 3px hsl(0, 0%, 90%), 
+                -3px 0px 3px hsl(0, 0%, 90%), 0px -3px 3px hsl(0, 0%, 90%),
+                -3px 0px 3px hsl(0, 0%, 90%), 0px -3px 3px hsl(0, 0%, 90%);
+}
 
 /*
     Custom style
 */
 .cdc-medoc-estuaire.centre {
-    fill: #ffc40a; 
+    fill: hsl(45, 100%, 52%); 
 }
