@@ -132,12 +132,12 @@
 			.on('mouseover', function (d) {
 				d3.select(this).attr('r', props.circle.active);
 				// reset style on others elements
-				d3.selectAll('.route').classed('highlight', false);
+				d3.selectAll('.route').classed('show', false);
 				// apply style to element(s)
-				d3.selectAll('.route.' + idify(d.depart)).classed('highlight', true);
+				d3.selectAll('.route.' + idify(d.depart)).classed('show', true);
 			})
 			.on('mouseout', function () {
-				d3.selectAll('.route').classed('highlight', false);
+				d3.selectAll('.route').classed('show', false);
 			})
 		;
 

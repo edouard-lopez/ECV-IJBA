@@ -1,21 +1,48 @@
 var $;
 
 $('input.route').change(function () {
-    $('path.route').toggleClass('highlight');
+    var type = $(this).attr('id').replace('centre-', '');
+    $('path.route').toggleClass('show');
+    toggleRoute(type, $(this).prop('checked'));
+    $('#centre-epci, #centre-transfert, #centre-traitement')
+    	.attr('disabled', function(idx, oldAttr) {return !oldAttr; })
 });
 $('input.co2').change(function () {
-    $('text.co2').toggleClass('highlight');
+    $('text.co2').toggleClass('show');
 });
 $('input.dist').change(function () {
-    $('text.dist').toggleClass('highlight');
+    $('text.dist').toggleClass('show');
 });
 
-$('input.n0').change(function () {
-    $('circle.n0').toggleClass('highlight').attr('r', 5);
+$('input').change(function () {
+    var type = $(this).attr('id').replace('centre-', '');
+    toggleCentre(type);
+    toggleRoute(type, $(this).prop('checked'));
 });
-$('input.n1').change(function () {
-    $('circle.n1').toggleClass('highlight').attr('r', 5);
-});
-$('input.n2').change(function () {
-    $('circle.n2').toggleClass('highlight').attr('r', 5);
-});
+
+function toggleCentre(type) {
+    $('.centre.'+type+', .centre.to-'+type).toggleClass('highlight').attr('r', 5);
+}
+
+/**
+ * Toggle visibility of given route type. If 'type' is 'route' then display all types
+ * @param  {[type]} type  of routes to display.
+ * @param  {[type]} state of input (checked or not)
+ */
+function toggleRoute(type, state) {
+    var routeSet;
+    routeSet = ( type == 'route'
+                	? $('.route') 
+                	: $('.route.from-'+type+', .route.to-'+type)
+                );
+
+	routeSet.attr('marker-end', function( i, val ) {
+			return state ? 'url(#arw)' : '';
+		})
+		.toggleClass('show')
+	;
+}
+
+function updateTotal() {
+
+}
