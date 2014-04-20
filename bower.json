@@ -4,5 +4,8 @@
   "dependencies": {
     "topojson": "~1.6.7",
     "jquery": "~2.1.0"
+  },
+  "devDependencies": {
+    "font-awesome": "~4.0.3"
   }
 }

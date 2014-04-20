@@ -27,12 +27,14 @@ header {
 	height:85px;
 	padding: 15px;
 	z-index: 9;
-	border-bottom: 1px solid #eee;
+	border-bottom: 1px solid #ddd;
 	width:100%;
+	background: #eee;
+	color: #666;
+	text-shadow: 1px 1px 1px #fff;
 }
 
 header h2 {
-	text-decoration: underline;
 }
 
 header .dechets {
@@ -53,6 +55,21 @@ header label {
 
 .dechets input {
 	margin-left: 1em;
+	position: absolute;
+	left: -999em;
+}
+ .dechets input+.fa-cloud
+,.dechets input+.fa-road 
+,.dechets input+.fa-random 
+	{ color: hsl(0, 0%, 80%); }
+ .dechets input:checked+.fa-cloud
+,.dechets input:checked+.fa-road 
+,.dechets input:checked+.fa-random 
+	{ color: hsl(0, 0%, 40%); }
+
+.dechets input, label>span::before {
+    height: 1em;
+    line-height: 1em;
 	vertical-align: middle;
 }
 

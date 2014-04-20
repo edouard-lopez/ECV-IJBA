@@ -11,6 +11,7 @@
 	
 	<!-- build:css styles/vendor.css -->
 	<link rel="stylesheet" href="lib/styles/leaflet.css">
+	<link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
 	<!-- bower:css -->
 	<!-- endbower -->
 	<!-- endbuild -->
@@ -31,30 +32,29 @@
 		<div class="checkboxes">
 		<label for="route">
 			<input type="checkbox" id="route" class="route">
+			<i class="fa fa-random"></i>
 			Trajets
 		</label>
-<!-- 		<label for="centre">
-			<input type="checkbox" id="centre" class="centre">
-			centre
-		</label> -->
-		<label for="cdc">
-			<input type="checkbox" id="cdc" class="centre n0">
-			Communauté de Communes
+		<label for="centre-epci">
+			<input type="checkbox" id="centre-epci" class="toggable epci">
+			<span>Communauté de Communes</span>
 		</label>
 		<label for="centre-transfert">
-			<input type="checkbox" id="centre-transfert" class="centre n1">
-			Centre de Transfert
+			<input type="checkbox" id="centre-transfert" class="toggable transfert">
+			<span>Centre de Transfert</span>
 		</label>
-		<label for="centre-de-traitement">
-			<input type="checkbox" id="centre-de-traitement" class="centre n2">
-			Centre de Traitement
+		<label for="centre-traitement">
+			<input type="checkbox" id="centre-traitement" class="toggable traitement">
+			<span>Centre de Traitement</span>
 		</label>
 		<label for="co2">
 			<input type="checkbox" id="co2" class="co2">
+			<i class="fa fa-cloud"></i>
 			CO<sub>2</sub> (Kg)
 		</label>
 		<label for="dist">
 			<input type="checkbox" id="dist" class="dist">
+			<i class="fa fa-road"></i>
 			Distance (km)
 		</label>
 		</div>
@@ -70,10 +70,10 @@
 			<th>Émission de CO<sub>2</sub></th>
 			<th>Tonnes de déchets traités</th>
 		</tr>
-		<tr>
-			<td>90 km</td>
-			<td>180 kg</td>
-			<td>13692</td>
+		<tr class="total">
+			<td class="dist"><i class="fa fa-road">90 Km</td>
+			<td class="emission"><i class="fa fa-cloud"></i>180 Kg</td>
+			<td class="volume">13692 t</td>
 		</tr>
 	</table>
 </div>
