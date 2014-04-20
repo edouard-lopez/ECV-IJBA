@@ -39,6 +39,16 @@
 
 	var svg				= d3.select(map.getPanes().overlayPane).append('svg'),
 		g				= svg.append('g').attr('class', 'leaflet-zoom-hide'),
+		marker 			= g.append('marker')
+								.attr('id', 'arw')
+								.attr('viewBox',"0 0 10 10")
+								.attr('refX', 0)
+						 	    .attr('refY', 5)
+						 	    .attr('markerUnits','strokeWidth')
+						 	    .attr('markerWidth',"4").attr('markerHeight',"3")
+						 	    .attr('orient',"auto")
+							.append('path')
+								.attr('d', 'M 0 0 L 10 5 L 0 10 z'),
 		entities		= g.append('g').attr('id', 'entities'),
 		entitiesLabels	= g.append('g').attr('id', 'entities-labels'),
 		centres			= g.append('g').attr('id', 'centres'),
@@ -89,13 +99,19 @@
 						.classed('highlight', false)
 						.attr('r', props.circle.default)
 					d3.selectAll('.entity-label').classed('show', false);
+					d3.selectAll('.route')
+						.classed('show', false)
+						.attr('marker-end', '');
 					// apply style to element(s)
 					d3.select(this).classed('active', true);
 					d3.selectAll('circle.' + idify(d.id))
 						.classed('highlight', true)
 						.attr('r', props.circle.active)
 					;
-					d3.select('.entity-label.' + idify(d.id)).classed('show', true);
+					d3.selectAll('.entity-label.' + idify(d.id)).classed('show', true);
+					d3.selectAll('.route.' + idify(d.id))
+						.classed('show', true)
+						.attr('marker-end', 'url(#arw)');
 				})
 			;
 

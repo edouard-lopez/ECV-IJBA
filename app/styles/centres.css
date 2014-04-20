@@ -66,6 +66,11 @@ input.traitement+span::before { background: linear-gradient(
     );
 }
 
+
+.route, marker#arw, .centre > .label {
+    opacity:0;
+    transition: opacity .5s;
+}
 .route { 
     fill: transparent;
     stroke: transparent;
