@@ -11,6 +11,13 @@ function toProperCase(str) {
     });
 }
 
+function getEpci(centre) {
+     for (var e in epci2centre)
+         if (epci2centre[e].length > 0)
+            for (var c in epci2centre[e]) 
+                if (centre == epci2centre[e][c]) return e
+}
+
 /**
  * Return the given EPCI and the list of matching centres
  * @param  {string} epci current EPCI

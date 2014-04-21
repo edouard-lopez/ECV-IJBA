@@ -222,9 +222,12 @@
 					});
 				})
 				.attr('class', function (d) { 
-					return ' route ' + idify(d.depart) + ' ' + idify(d.arrivee) 
-						 + ' from-' + typeCentre[d.niv_depart] 
-						 + ' to-' + typeCentre[d.niv_arrivee]; 
+					return [
+								getEpci(idify(d.depart)), getEpci(idify(d.arrivee)),
+								'route', idify(d.depart), idify(d.arrivee),
+								'from-' + typeCentre[d.niv_depart],
+								'to-' + typeCentre[d.niv_arrivee],
+						 	].join(' '); 
 				})
 			;
 
