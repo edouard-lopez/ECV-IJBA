@@ -261,6 +261,7 @@
 	 * Utility to project a depart point
 	 */
 	function projectDepart(d) { return projectPoint([Number(d.lon_depart), Number(d.lat_depart)]); }
+	function projectArrivee(d) { return projectPoint([Number(d.lon_arrivee), Number(d.lat_arrivee)]); }
 
 	/**
 	 * Use Leaflet to implement a D3 geographic projection.
