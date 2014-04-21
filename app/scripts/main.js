@@ -127,6 +127,7 @@
 						.classed('show', true)
 						.attr('marker-mid', 'url(#arw-mid)')
 						.attr('marker-end', 'url(#arw-end)')
+					;
 				})
 			;
 
@@ -217,10 +218,12 @@
 			routePath.attr('d', function (d) {
 					var coordDepart = [ d.lon_depart, d.lat_depart ];
 					var coordArrivee = [ d.lon_arrivee, d.lat_arrivee ];
+					var vertex = path.centroid({type: 'LineString', coordinates: [coordDepart, coordArrivee ] });
 					return path({
 						type: 'LineString',
 						coordinates: [
 							coordDepart,
+							pointToProjection(vertex),
 							coordArrivee
 						]
 					});
