@@ -45,7 +45,8 @@
     
 	var  svg			= d3.select(map.getPanes().overlayPane).append('svg')
 		,g				= svg.append('g').attr('class', 'leaflet-zoom-hide')
-		marker 			= g.append('marker')
+		,defs			= svg.append('defs')
+		,marker 			= defs.append('marker')
 								.attr('id', 'arw')
 								.attr('viewBox',"0 0 10 10")
 								.attr('refX', 0)
