@@ -231,13 +231,13 @@
 				.attr('y', -5)
 				.attr('dy', '.35em')
 				.attr('transform', function (d) {return attach(d) })
-				.text(function (d) { return d.co2+'kg'; })
+				.text(function (d) { return d.co2+'Kg'; })
 
 			dist.attr('class', 'dist')
 				.attr('y', 5)
 				.attr('dy', '.35em')
 				.attr('transform', function (d) {return attach(d) })
-				.text(function (d) { return d.dist+'km'; })
+				.text(function (d) { return d.dist+'Km'; })
 
 		}
 	});
