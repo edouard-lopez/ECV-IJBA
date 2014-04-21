@@ -27,11 +27,11 @@ header {
 	height:85px;
 	padding: 15px;
 	z-index: 9;
-	border-bottom: 1px solid #ddd;
+	border-bottom: 1px solid hsl(0, 0%, 87%);
 	width:100%;
-	background: #eee;
-	color: #666;
-	text-shadow: 1px 1px 1px #fff;
+	/*background: hsl(0, 0%, 93%);*/
+	color: hsl(0, 0%, 40%);
+	text-shadow: 1px 1px 1px hsl(0, 0%, 100%);
 }
 
 header h2 {
@@ -88,7 +88,7 @@ header label {
 	/*width:55%;*/
 	height:80%;
 	padding-top:85px;
-	border: thin dashed #00b4db;
+	border: thin dashed hsl(191, 100%, 43%);
 	float: right;
 }
 
@@ -111,8 +111,8 @@ header label {
 	width: 33%;
 	border-radius: .25em;
 	background-clip: padding-box;
-	background-color: #aeaeae;
-	color: #fff;
+	background-color: hsl(0, 0%, 68%);
+	color: hsl(0, 0%, 100%);
 	font-size: 2.25em;
 	line-height: 2.25em;
 }
