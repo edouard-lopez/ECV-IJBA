@@ -259,13 +259,21 @@
 	 */
 	function projectDepart(d) { return projectPoint([Number(d.lon_depart), Number(d.lat_depart)]); }
 
-	// Use Leaflet to implement a D3 geographic projection.
+	/**
+	 * Use Leaflet to implement a D3 geographic projection.
+	 * @param  {array} x point as {latitute,longitude} array
+	 * @return {array}   d3 coordinates as {x,y} array
+	 */
 	function projectPoint(x) {
 		var point = map.latLngToLayerPoint(new L.LatLng(x[1], x[0]));
 		return [point.x, point.y];
 	}
 
-	// Use Leaflet to implement a D3 geographic projection.
+	/**
+	 * D3 to Leaflet coordinates
+	 * @param  {array} p d3 coordinates as {x,y} array
+	 * @return {array}   point as {latitute,longitude} array
+	 */
 	function pointToProjection(p) {
 		var projection = map.layerPointToLatLng(new L.point(p[0], p[1]));
 		return [projection.lat, projection.lng];
