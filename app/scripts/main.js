@@ -276,7 +276,7 @@
 	 */
 	function pointToProjection(p) {
 		var projection = map.layerPointToLatLng(new L.point(p[0], p[1]));
-		return [projection.lat, projection.lng];
+		return [projection.lng, projection.lat];
 	}
 
 
