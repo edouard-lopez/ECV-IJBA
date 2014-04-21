@@ -1,7 +1,7 @@
 /**
 * Fix EPCI to centre/route relation
 */
-var ecpi2centre = {
+var epci2centre = {
     'pointe-medoc': [],
     'coeur-medoc': [],
     'centre-medoc': [],
@@ -16,7 +16,7 @@ var ecpi2centre = {
     'canton-fronsac': [],
     'cali': ['smicval', 'saint-denis-pile'],
     'grand-saint-emilion': ['sictom-langonnais'],
-    'castillon-pujols': ['smictom-castillon-la-bataille'],
+    'castillon-pujols': ['smictom-castillon-bataille'],
     'pays-pelle': [],
     'brannais-entre-2-mers-ouest': [],
     'sauveterrois': ['massugas'],
@@ -25,7 +25,7 @@ var ecpi2centre = {
     'secteur-saint-loubes': [],
     'coteaux-bordelais': ['pompignac'],
     'cub': ['bordeaux-latule', 'saint-medard-en-jalles-touban'],
-    'jalle-eau-bourde': ['saint-jean-illac', 'martignac-sur-jalle', 'cestas-canejan'],
+    'jalle-eau-bourde': ['saint-jean-illac', 'martignas-sur-jalle', 'cestas-canejan'],
     'coban': ['lege-cap-ferret', 'coban-atlantique'],
     'montesquieu': ['montesquieu'],
     'vallon-artolie': [],
@@ -33,7 +33,7 @@ var ecpi2centre = {
     'reolais-auros-monsegur': ['userctom-monsegur'],
     'coteaux-garonne': [],
     'coteaux-macariens': [],
-    'canton-podensac': ['canton-podensac'],
+    'canton-podensac': ['canton-podensac', 'villandraut'],
     'cobas': ['cobas', 'teste-buch'],
     'val-eyre': ['val-eyre'],
     'sud-gironde': ['bazadais', 'captieux-grignols', 'fargues', 'pays-paroupian', 'sm-sauterrois'],
