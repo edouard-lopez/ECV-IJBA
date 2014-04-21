@@ -201,11 +201,7 @@
 			centreLabel
 				.attr('class', 'label')
 				.attr('transform', function (d) { 
-					return 'translate('
-						+ projectDepart(d)[0]
-						+ ', '
-						+ projectDepart(d)[1]
-					 	+ ')'; 
+					return 'translate('+ projectDepart(d)[0] + ', ' + projectDepart(d)[1] + ')';
 				})
 				.text(function (d) { return idify(d.depart); })
 			;
