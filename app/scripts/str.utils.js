@@ -40,7 +40,7 @@ function idify(s) {
             .replace(/Œ|œ/, 'oe')
             .replace(/[éèè]/, 'e')
             .replace(/cdc|centre|transfert/g, '')
-            .replace(/-(d[uea]*)-/g, '')
+            .replace(/-(d[uea]*)-/g, '-')
             .replace(/-(l[ea]*)-/g, '-')
             .replace(/[-]+/g, '-')
             .replace(/^-/, '')
