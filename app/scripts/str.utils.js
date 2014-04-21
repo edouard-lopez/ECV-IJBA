@@ -24,7 +24,7 @@ function getEpci(centre) {
  * @return {array}       list of centre+ current EPCI
  */
 function getCentres(epci) {
-    var centres = ecpi2centre[epci] || [];
+    var centres = epci2centre[epci] || [];
     centres.push(epci);
     return jQuery.unique(centres);
 }
