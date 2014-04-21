@@ -43,8 +43,8 @@
 		attribution: 'Map data © <a href="http://www.openstreetmap.org">OpenStreetMap contributors</a>'
 	}).addTo(map);
     
-	var svg				= d3.select(map.getPanes().overlayPane).append('svg'),
-		g				= svg.append('g').attr('class', 'leaflet-zoom-hide'),
+	var  svg			= d3.select(map.getPanes().overlayPane).append('svg')
+		,g				= svg.append('g').attr('class', 'leaflet-zoom-hide')
 		marker 			= g.append('marker')
 								.attr('id', 'arw')
 								.attr('viewBox',"0 0 10 10")
@@ -55,10 +55,10 @@
 						 	    .attr('orient',"auto")
 							.append('path')
 								.attr('d', 'M 0 0 L 10 5 L 0 10 z'),
-		entities		= g.append('g').attr('id', 'entities'),
-		entitiesLabels	= g.append('g').attr('id', 'entities-labels'),
-		centres			= g.append('g').attr('id', 'centres'),
-		routes			= g.append('g').attr('id', 'routes')
+		,entities		= g.append('g').attr('id', 'entities')
+		,entitiesLabels	= g.append('g').attr('id', 'entities-labels')
+		,centres			= g.append('g').attr('id', 'centres')
+		,routes			= g.append('g').attr('id', 'routes')
 	;
 
 	var path, entity, label, centre;
