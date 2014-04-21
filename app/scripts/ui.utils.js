@@ -36,9 +36,9 @@ function toggleRoute(type, state) {
                 	: $('.route.from-'+type+', .route.to-'+type)
                 );
 
-	routeSet.attr('marker-end', function( i, val ) {
-			return state ? 'url(#arw)' : '';
-		})
+	routeSet
+        .attr('marker-mid', function( i, val ) {return state ? 'url(#arw-mid)' : ''; })
+        .attr('marker-end', function( i, val ) {return state ? 'url(#arw-end)' : ''; })
 		.toggleClass('show')
 	;
 }

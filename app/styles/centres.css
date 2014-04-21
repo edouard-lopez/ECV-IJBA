@@ -92,8 +92,12 @@ input.traitement+span::before { background: linear-gradient(
 }
 
 
-.route, marker#arw, .centre > .label {
+ .route
+, marker#arw-mid
+, marker#arw-end
+, .centre > .label {
     opacity:0;
+    overflow: visible;
     transition: opacity .5s;
 }
 .centre > circle {}
@@ -110,10 +114,18 @@ input.traitement+span::before { background: linear-gradient(
     stroke-width: 2;
     transition: fill .5s, stroke .5s;
 }
-.route.show, marker#arw {
-    fill: hsl(15.6, 87%, 90%);
+ .route.show
+, marker#arw-mid
+, marker#arw-end 
+ {
+    fill: none;
     stroke: hsl(15.6, 87%, 55%);
+    stroke-width: 2;
     opacity:1;
+}
+marker#arw-mid {
+    fill: none;
+    stroke: hsl(0, 0%, 100%);
 }
 
 svg .co2, svg .dist {

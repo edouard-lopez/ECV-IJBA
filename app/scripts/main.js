@@ -47,7 +47,7 @@
 		,g				= svg.append('g').attr('class', 'leaflet-zoom-hide')
 		,defs			= svg.append('defs')
 		,marker 			= defs.append('marker')
-								.attr('id', 'arw')
+								.attr('id', 'arw-end')
 								.attr('viewBox',"0 0 10 10")
 								.attr('refX', 0)
 						 	    .attr('refY', 5)
@@ -56,6 +56,14 @@
 						 	    .attr('orient',"auto")
 							.append('path')
 								.attr('d', 'M 0 0 L 10 5 L 0 10 z'),
+		,markerMid 		= defs.append('marker')
+								.attr('id', 'arw-mid')
+								.attr('viewBox',"0 0 10 10")
+						 	    .attr('refY', 0)
+						 	    .attr('refY', 5)
+						 	    .attr('orient', "auto")
+							.append('path')
+								.attr('d', 'M 0,0 10,5 0,10')
 		,entities		= g.append('g').attr('id', 'entities')
 		,entitiesLabels	= g.append('g').attr('id', 'entities-labels')
 		,centres			= g.append('g').attr('id', 'centres')
@@ -109,7 +117,7 @@
 					d3.selectAll('.entity-label').classed('show', false);
 					d3.selectAll('.route')
 						.classed('show', false)
-						.attr('marker-end', '');
+						.attr('marker-mid', '');
 					// apply style to element(s)
 					d3.select(this).classed('active', true);
 					d3.selectAll('circle.' + idify(d.id))
@@ -119,7 +127,8 @@
 					d3.selectAll('.entity-label.' + idify(d.id)).classed('show', true);
 					d3.selectAll('.route.' + idify(d.id))
 						.classed('show', true)
-						.attr('marker-end', 'url(#arw)');
+						.attr('marker-mid', 'url(#arw-mid)')
+						.attr('marker-end', 'url(#arw-end)')
 				})
 			;
 
