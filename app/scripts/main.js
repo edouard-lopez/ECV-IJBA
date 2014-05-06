@@ -58,7 +58,8 @@ function sankeyGraph() {
 			default: 2,
 			active: 5
 		}
-	}
+	};
+
 
 	/**
 	 * Map type of centre index to name
@@ -78,29 +79,30 @@ function sankeyGraph() {
 		attribution: 'Map data © <a href="http://www.openstreetmap.org">OpenStreetMap contributors</a>'
 	}).addTo(map);
     
-	var  svg			= d3.select(map.getPanes().overlayPane).append('svg')
-		,g				= svg.append('g').attr('class', 'leaflet-zoom-hide')
-		,defs			= svg.append('defs')
-		,marker 			= defs.append('marker')
+	
+	var svg			= d3.select(map.getPanes().overlayPane).append('svg'),
+		g				= svg.append('g').attr('class', 'leaflet-zoom-hide'),
+		defs			= svg.append('defs'),
+		marker 			= defs.append('marker')
 								.attr('id', 'arw-end')
-								.attr('viewBox',"0 0 10 10")
+								.attr('viewBox','0 0 10 10')
 								.attr('refX', 10)
-						 	    .attr('refY', 5)
-						 	    .attr('orient',"auto")
+								.attr('refY', 5)
+								.attr('orient','auto')
 							.append('path')
-								.attr('d', 'M 0,0 10,5 0,10')
-		,markerMid 		= defs.append('marker')
+								.attr('d', 'M 0,0 10,5 0,10'),
+		markerMid 		= defs.append('marker')
 								.attr('id', 'arw-mid')
-								.attr('viewBox',"0 0 10 10")
-						 	    .attr('refY', 0)
-						 	    .attr('refY', 5)
-						 	    .attr('orient', "auto")
+								.attr('viewBox','0 0 10 10')
+								.attr('refY', 0)
+								.attr('refY', 5)
+								.attr('orient', 'auto')
 							.append('path')
-								.attr('d', 'M 0,0 10,5 0,10')
-		,entities		= g.append('g').attr('id', 'entities')
-		,entitiesLabels	= g.append('g').attr('id', 'entities-labels')
-		,centres			= g.append('g').attr('id', 'centres')
-		,routes			= g.append('g').attr('id', 'routes')
+								.attr('d', 'M 0,0 10,5 0,10'),
+		entities		= g.append('g').attr('id', 'entities'),
+		entitiesLabels	= g.append('g').attr('id', 'entities-labels'),
+		centres			= g.append('g').attr('id', 'centres'),
+		routes			= g.append('g').attr('id', 'routes')
 	;
 
 	var path, entity, label, centre;
@@ -122,9 +124,6 @@ function sankeyGraph() {
 				.append('text')
 				.attr('class', 'entity-label')
 			;
-
-		map.on('viewreset', reset);
-		reset();
 
 		// Reposition the SVG to cover the features.
 		function reset() {
@@ -175,6 +174,9 @@ function sankeyGraph() {
 				.text(function (d) { return toProperCase(d.id); })
 			;
 		}
+
+		map.on('viewreset', reset);
+		reset();
 	});
 
 
@@ -194,10 +196,10 @@ function sankeyGraph() {
 			})
 			.on('mouseout', function () {
 				d3.selectAll('.route').classed('show', false);
-			})
+			});
+
 		var centrePlace = centre.append('circle');
 		var centreLabel = centre.append('text');
-		;
 
 		// Standard enter / update 
 		var routePath = routes.selectAll('.route')
@@ -206,13 +208,13 @@ function sankeyGraph() {
 			.append('path')
 		;
 
-		var co2Group = routes.append('g').attr('id', 'co2')
+		var co2Group = routes.append('g').attr('id', 'co2');
 		var co2 = co2Group.selectAll('.co2')
 			.data(dataset)
 			.enter()
 			.append('text')
-
-		var distGroup = routes.append('g').attr('id', 'dist')
+		;
+		var distGroup = routes.append('g').attr('id', 'dist');
 		var dist = distGroup.selectAll('.dist')
 			.data(dataset)
 			.enter()
@@ -225,15 +227,12 @@ function sankeyGraph() {
 			return 'translate(' + path.centroid({type: 'LineString', coordinates: [coordDepart, coordArrivee ] }) + ')'; 
 		}
 
-		map.on('viewreset', reset);
-		reset();
-
 		function reset() {
 			centre
 				.attr('class', function (d) { 
-					return ' centre ' + idify(d.depart) 
-						 + ' from-' + typeCentre[d.niv_depart] 
-						 + ' to-' + typeCentre[d.niv_arrivee];
+					return	' centre ' + idify(d.depart) +
+							' from-' + typeCentre[d.niv_depart] +
+							' to-' + typeCentre[d.niv_arrivee];
 				})
 			;
 			centrePlace
@@ -269,23 +268,26 @@ function sankeyGraph() {
 								'route', idify(d.depart), idify(d.arrivee),
 								'from-' + typeCentre[d.niv_depart],
 								'to-' + typeCentre[d.niv_arrivee],
-						 	].join(' '); 
+							].join(' '); 
 				})
 			;
 
 			co2.attr('class', 'co2')
 				.attr('y', -5)
 				.attr('dy', '.35em')
-				.attr('transform', function (d) {return attach(d) })
+				.attr('transform', function (d) {return attach(d); })
 				.text(function (d) { return d.co2+'Kg'; })
-
+			;
 			dist.attr('class', 'dist')
 				.attr('y', 5)
 				.attr('dy', '.35em')
-				.attr('transform', function (d) {return attach(d) })
+				.attr('transform', function (d) {return attach(d); })
 				.text(function (d) { return d.dist+'Km'; })
-
+			;
 		}
+
+		map.on('viewreset', reset);
+		reset();
 	});
 
 
