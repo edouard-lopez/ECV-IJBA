@@ -66,13 +66,20 @@ gulp.task('data', function () {
         .pipe($.size());
 });
 
+// Fonts
+gulp.task('fonts', function() {
+    return gulp.src([
+                    'app/bower_components/font-awesome/fonts/fontawesome-webfont.*'])
+            .pipe(gulp.dest('dist/fonts/'));
+});
+
 // Clean
 gulp.task('clean', function () {
     return gulp.src(['dist/styles', 'dist/scripts', 'dist/images'], { read: false }).pipe($.clean());
 });
 
 // Build
-gulp.task('build', ['html', 'images', 'data']);
+gulp.task('build', ['html', 'images', 'data', 'fonts']);
 
 // Default task
 gulp.task('default', ['clean'], function () {
