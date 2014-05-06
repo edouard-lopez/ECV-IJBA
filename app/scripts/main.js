@@ -148,10 +148,13 @@ function sankeyGraph() {
 					d3.selectAll('circle') 
 						.classed('highlight', false)
 						.attr('r', props.circle.default)
+					;
 					d3.selectAll('.entity-label').classed('show', false);
 					d3.selectAll('.route')
 						.classed('show', false)
-						.attr('marker-mid', '');
+						.attr('marker-mid', null)
+						.attr('marker-end', null)
+					;
 					// apply style to element(s)
 					d3.select(this).classed('active', true);
 					d3.selectAll('circle.' + idify(d.id))
