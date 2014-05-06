@@ -366,7 +366,11 @@
         },
         {
           "type": "Polygon",
-          "properties": { "TITRE_EPCI": "COMMUNAUTE URBAINE DE BORDEAUX", "FIRST_TITR": "CUB", "FIRST_PAYS": "Zone CUB" },
+          "properties": { 
+            "TITRE_EPCI": "COMMUNAUTE URBAINE DE BORDEAUX", 
+            "FIRST_TITR": "CUB", 
+            "FIRST_PAYS": "Zone CUB" 
+        },
           "id": "CUB",
           "arcs": [[-135, -69, -85, -56, -143, -23, -144, -109, -125]]
         }
