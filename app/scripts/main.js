@@ -133,6 +133,7 @@ function sankeyGraph() {
 
 		addCentre(geoData.features, 'id');
 
+
 		entity = entities.selectAll('.entity')
 			.data(geoData.features)
 			.enter()
@@ -210,8 +211,10 @@ function sankeyGraph() {
 			.enter()
 			.append('g')
 		;
+
 		addCentre(dataset, 'depart');
 		addCentre(dataset, 'arrivee');
+
 		function getEndIndex(fromData, d) { 
 			for (var j = 0; j < fromData.length; j++) {
 				if (fromData[j].arrivee === d.arrivee) {
@@ -229,6 +232,7 @@ function sankeyGraph() {
 			});
 		}
 		addLink(dataset);
+
 		centre
 			.on('mouseover', function (d) {
 				d3.select(this).attr('r', props.circle.active);
@@ -309,6 +313,16 @@ function sankeyGraph() {
 					return [
 								getEpci(idify(d.depart)), getEpci(idify(d.arrivee)),
 								'route', idify(d.depart), idify(d.arrivee),
+								'from-' + typeCentre[d.niv_depart],
+								'to-' + typeCentre[d.niv_arrivee],
+							].join(' '); 
+				})
+			;
+			routePath
+				.attr('class', function (d) { 
+					return [
+								getEpci(idify(d.depart)), getEpci(idify(d.arrivee)),
+								'arc route', idify(d.depart), idify(d.arrivee),
 								'from-' + typeCentre[d.niv_depart],
 								'to-' + typeCentre[d.niv_arrivee],
 							].join(' '); 
