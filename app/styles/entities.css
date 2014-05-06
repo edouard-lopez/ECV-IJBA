@@ -1,7 +1,7 @@
 path.entity {
-  fill: hsl(296, 0%, 44%);
-  fill-opacity: .2;
-  stroke: hsl(0, 0%, 100%);
+  fill-opacity: .5;
+  fill: hsl(296, 0%, 100%);
+  stroke: hsl(0, 0%, 80%);
   stroke-width: 1px;
   stroke-linecap: round;
   stroke-linejoin: round;
@@ -12,8 +12,8 @@ path.entity {
   transition: fill .5s, opacity .5s;
 }
 path.active {
-  fill: hsl(295.5, 18%, 44%);
-  fill-opacity: .7;
+  fill: hsl(85, 70%, 70%);
+  fill-opacity: .5;
 }
 
 path.cdc-du-creonnais {
@@ -23,7 +23,6 @@ path.cdc-du-creonnais {
     display: none;
     font-weight: bold;
     fill: hsl(0, 0%, 20%);
-    /*text-anchor: middle;*/
 }
 
 text.entity-label.show {
