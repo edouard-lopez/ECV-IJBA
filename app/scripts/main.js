@@ -212,6 +212,23 @@ function sankeyGraph() {
 		;
 		addCentre(dataset, 'depart');
 		addCentre(dataset, 'arrivee');
+		function getEndIndex(fromData, d) { 
+			for (var j = 0; j < fromData.length; j++) {
+				if (fromData[j].arrivee === d.arrivee) {
+					return j;
+				}
+			}
+		}
+		function addLink(fromData) {
+			fromData.map(function (d, i) {
+				links.push({
+					'source': i,
+					'target': getEndIndex(fromData, d),
+					'value': Math.round(d.qte, 0)
+				}); 
+			});
+		}
+		addLink(dataset);
 		centre
 			.on('mouseover', function (d) {
 				d3.select(this).attr('r', props.circle.active);
