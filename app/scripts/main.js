@@ -60,6 +60,11 @@ function sankeyGraph() {
 		}
 	};
 
+	/**
+	 * List of centres
+	 * @type {Array}
+	 */
+	var centreList = [];
 
 	/**
 	 * Map type of centre index to name
@@ -72,13 +77,27 @@ function sankeyGraph() {
 	 */
 	var links = [];
 
+
+	/**
+	 * Add missing centres from the CSV to the global list.
+	 * 
+	 * @param {[type]} column [description]
+	 */
+	function addCentre(fromData, column) {
+		fromData.map(function(d) { 
+			var key = idify(d[column]);
+
+			if (centreList.indexOf(key) === -1) { centreList.push(key); }
+		});
+	}
+
+
 	/* add default stamen tile layer */
 	new L.tileLayer('http://{s}.tiles.mapbox.com/v3/examples.map-vyofok3q/{z}/{x}/{y}.png', {
 		minZoom: 0,
 		maxZoom: 18,
 		attribution: 'Map data © <a href="http://www.openstreetmap.org">OpenStreetMap contributors</a>'
 	}).addTo(map);
-    
 	
 	var svg			= d3.select(map.getPanes().overlayPane).append('svg'),
 		g				= svg.append('g').attr('class', 'leaflet-zoom-hide'),
@@ -191,6 +210,8 @@ function sankeyGraph() {
 			.enter()
 			.append('g')
 		;
+		addCentre(dataset, 'depart');
+		addCentre(dataset, 'arrivee');
 		centre
 			.on('mouseover', function (d) {
 				d3.select(this).attr('r', props.circle.active);
