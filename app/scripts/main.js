@@ -1,4 +1,35 @@
 /**
+ * Hook and build the sankey graph to the page
+ * @return {[type]} [description]
+ */
+function sankeyGraph() {
+	var margin = {top: 1, right: 1, bottom: 6, left: 1},
+	width = 960 - margin.left - margin.right,
+	height = 500 - margin.top - margin.bottom;
+
+	var formatNumber = d3.format(',.0f'),
+		format = function(d) { return formatNumber(d) + ' TWh'; },
+		color = d3.scale.category20();
+
+	var svg = d3.select('.flow-app')
+			.append('svg')
+				.attr('width', width + margin.left + margin.right)
+				.attr('height', height + margin.top + margin.bottom)
+			.append('g')
+				.attr('transform', 'translate(' + margin.left + ',' + margin.top + ')')
+	;
+
+	var sankey = d3.sankey()
+		.nodeWidth(15)
+		.nodePadding(10)
+		.size([width, height]);
+
+	var path = sankey.link();
+
+}
+
+
+/**
 * Heavily based on Mike Bostocks work: http://bost.ocks.org/mike/leaflet/
 * @param  {[type]} window    [description]
 * @param  {[type]} document  [description]
@@ -8,6 +39,10 @@
 */
 (function (window, document, L, undefined) {
 	'use strict';
+
+	
+	// sankeyGraph();
+
 
 	/* create leaflet map */
 	var map = L.map('map', {
