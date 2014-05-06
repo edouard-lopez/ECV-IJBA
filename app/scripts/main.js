@@ -108,18 +108,20 @@ function sankeyGraph() {
 	var path, entity, label, centre;
 
 	d3.json('scripts/gironde-epci.topo.json', function (dataset) {
-		var bounds = d3.geo.bounds(topojson.feature(dataset, dataset.objects['gironde-epci.geo']));
+		var geoData = topojson.feature(dataset, dataset.objects['gironde-epci.geo']);
+		var bounds = d3.geo.bounds(geoData);
 		path = d3.geo.path().projection(projectPoint);
 
+		addCentre(geoData.features, 'id');
 
 		entity = entities.selectAll('.entity')
-			.data(topojson.feature(dataset, dataset.objects['gironde-epci.geo']).features)
+			.data(geoData.features)
 			.enter()
 				.append('path')
 				.attr('class', 'entity')
 			;
 		label = entitiesLabels.selectAll('.entity-label')
-			.data(topojson.feature(dataset, dataset.objects['gironde-epci.geo']).features)
+			.data(geoData.features)
 			.enter()
 				.append('text')
 				.attr('class', 'entity-label')
