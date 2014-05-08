@@ -1,3 +1,16 @@
+.fa-stack-50pc {
+	position: absolute;
+	left: 25%;
+	top: 15%;
+	width: 100%;
+	text-align: center;
+	font-size: .25em;
+}
+
+.fa-cloud.fa-stack-50pc {
+	text-shadow: 1px 1px 0px hsl(0, 0%, 100%);
+}
+
 *,
 *:before,
 *:after {
