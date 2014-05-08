@@ -26,8 +26,8 @@
 
 
  .route
-, marker#arw-mid
-, marker#arw-end
+, #arw-mid
+, #arw-end
 , .centre > .label {
     opacity:0;
     overflow: visible;
@@ -56,8 +56,8 @@
     stroke-dashoffset: 0
 }
  .route.show
-, marker#arw-mid
-, marker#arw-end
+, #arw-mid
+, #arw-end
  {
     fill: none;
     stroke: hsl(191, 100%, 43%);
@@ -67,19 +67,19 @@
 .route.show {
     stroke: #ffc40a;
 }
- marker#arw-mid
-,marker#arw-end 
+ #arw-mid
+,#arw-end 
 {
     stroke: hsl(16, 87%, 55%);
     stroke: hsl(85, 53%, 50%);
 }
-marker#arw-mid
-,marker#arw-end
+#arw-mid
+,#arw-end
  {
     fill: none;
     stroke: hsl(15, 87%, 70%);
 }
-marker#arw-end {
+#arw-end {
     stroke: hsl(15, 87%, 50%);
 }
 
