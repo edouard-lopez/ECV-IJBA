@@ -46,7 +46,7 @@ function sankeyGraph() {
 
 	/* create leaflet map */
 	var map = L.map('map', {
-		center: [44.8997, -0.8157],
+		center: [44.8597, -0.5157],
 		zoom: 9
 	});
 

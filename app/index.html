@@ -26,60 +26,79 @@
 </head>
 <body>
 	
-  <header class="group">
-	 <div class="dechets">
-		<h2>Impact du Transport des déchets sur notre environnement ?</h2>
-		<div class="checkboxes">
-		<label for="route">
-			<input type="checkbox" id="route" class="route">
-			<i class="fa fa-random"></i>
-			Trajets
-		</label>
-		<label for="centre-epci">
-			<input type="checkbox" id="centre-epci" class="toggable epci">
-			<span>Communauté de Communes</span>
-		</label>
-		<label for="centre-transfert">
-			<input type="checkbox" id="centre-transfert" class="toggable transfert">
-			<span>Centre de Transfert</span>
-		</label>
-		<label for="centre-traitement">
-			<input type="checkbox" id="centre-traitement" class="toggable traitement">
-			<span>Centre de Traitement</span>
-		</label>
-		<label for="co2">
-			<input type="checkbox" id="co2" class="co2">
-			<i class="fa fa-cloud"></i>
-			CO<sub>2</sub> (Kg)
-		</label>
-		<label for="dist">
-			<input type="checkbox" id="dist" class="dist">
-			<i class="fa fa-road"></i>
-			Distance (km)
-		</label>
+
+	<div class="flex-container fixed-height">
+		<nav class="controls">
+		 <div class="dechets">
+			<h2>Transport des déchets</h2>
+			<div class="checkboxes">
+				<label for="centre-epci">
+					<input type="checkbox" id="centre-epci" class="toggable epci">
+					<span>Intercommunalités</span>
+				</label>
+				<label for="centre-transfert">
+					<input type="checkbox" id="centre-transfert" class="toggable transfert">
+					<span>Centre de Transfert</span>
+				</label>
+				<label for="centre-traitement">
+					<input type="checkbox" id="centre-traitement" class="toggable traitement">
+					<span>Centre de Traitement</span>
+				</label>
+				<label for="route">
+					<input type="checkbox" id="route" class="route toggable">
+					<i class="fa fa-random"></i>
+					Trajets
+				</label>
+				<label for="co2">
+					<input type="checkbox" id="co2" class="co2 ">
+					<span class="fa-stack">
+					  <i class="fa fa-cloud fa-stack-1x"></i>
+					  <i class="fa fa-cloud fa-stack-50pc fa-flip-horizontal"></i>
+					</span>
+					Quantité de CO<sub>2</sub> (<abbr title="Kilograms">kg</abbr>)
+				</label>
+				<label for="dist">
+					<input type="checkbox" id="dist" class="dist toggable">
+					<i class="fa fa-road"></i>
+					Distance (<abbr title="Kilometers">km</abbr>)
+				</label>
+			</div>
+		</div>
+		</nav>
+		<div class="map-app">
+			<div id="map" class="map"></div>
+
+			<table class="compteurs" summary="Totaux ou valeurs instantanés des mesures">
+				<tr>
+					<th>Distance parcourue</th>
+					<th>Émission de CO<sub>2</sub></th>
+					<th>Tonnes de déchets traités</th>
+				</tr>
+				<tr class="total f-container">
+					<td class="dist f-item">
+						<i class="fa fa-road"></i>
+						<span class="value">90</span> 
+						<abbr class="unit" title="Kilometer">Km</abbr>
+					</td>
+					<td class="emission f-item">
+						<span class="fa-stack">
+						  <i class="fa fa-cloud fa-stack-1x"></i>
+						  <i class="fa fa-cloud fa-stack-50pc fa-flip-horizontal"></i>
+						</span>
+						<span class="value">180</span> 
+						<abbr class="unit" title="Kilogram">Kg</abbr>
+					</td>
+					<td class="volume f-item">
+						<abbr class="value">13692</span> 
+						<abbr class="unit" title="tonne">t</abbr>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div class="flow-app">
+			Sankey Graph
 		</div>
 	</div>
-</header>
-
-<div class="map-app">
-	<div id="map" class="map"></div>
-
-	<table class="compteurs" summary="Totaux ou valeurs instantanés des mesures">
-		<tr>
-			<th>Distance parcourue</th>
-			<th>Émission de CO<sub>2</sub></th>
-			<th>Tonnes de déchets traités</th>
-		</tr>
-		<tr class="total">
-			<td class="dist"><i class="fa fa-road">90 Km</td>
-			<td class="emission"><i class="fa fa-cloud"></i>180 Kg</td>
-			<td class="volume">13692 t</td>
-		</tr>
-	</table>
-</div>
-<div class="flow-app">
-	
-</div>
 
 <!-- build:js scripts/vendor.js -->
 <script src="lib/scripts/leaflet.js"></script>
