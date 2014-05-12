@@ -7,8 +7,10 @@
 	font-size: .25em;
 }
 
+.fa-stack-50pc.fa-cloud {
+}
 .fa-cloud.fa-stack-50pc {
-	text-shadow: 1px 1px 0px hsl(0, 0%, 100%);
+	text-shadow: 1px 1px 0 hsl(0, 0%, 100%);
 }
 
 *,
@@ -38,37 +40,6 @@ html {
 	width: auto;
 	max-width: 40%;
 }
-
-
-.compteurs {
-	margin-top: 1em;
-    border-spacing: .5em;
-    border-collapse: separate;
-	text-align: center;
-}
-.compteurs th {
-	font-size: .8em;
-	font-weight: bold;
-	margin: 1em 0;
-	text-transform: uppercase;
-	text-align: center;
-}
-
-.compteurs td {
-	width: 33%;
-	border-radius: .25em;
-	background-clip: padding-box;
-	background-color: hsl(0, 0%, 68%);
-	color: hsl(0, 0%, 100%);
-	font-size: 2.25em;
-	padding: .25em .25em;
-}
-
-
-
-
-
-
 
 
 
@@ -107,8 +78,16 @@ html {
 /* .controls
 ,.map-app
 ,.flow-app {
-	
+
 }*/
+ .controls
+,.map-app
+,.flow-app {
+	/*use flex properties ?*/
+    margin: auto 1em;
+    margin-top: 1em;
+}
+
 .controls {
 	-webkit-order: 0;
 	order: 0;
@@ -116,6 +95,7 @@ html {
 	flex: 0 1 auto;
 	-webkit-align-self: flex-start;
 	align-self: flex-start;
+
 	-webkit-order: 0;
 	-webkit-flex: 0 1 auto;
 	-webkit-align-self: flex-start;
@@ -127,6 +107,7 @@ html {
 	flex: 1 1 auto;
 	-webkit-align-self: auto;
 	align-self: auto;
+
 	-webkit-order: 0;
 	-webkit-flex: 1 1 auto;
 	-webkit-align-self: auto;
@@ -139,6 +120,7 @@ html {
 	flex: 1 1 auto;
 	-webkit-align-self: auto;
 	align-self: auto;
+
 	-webkit-order: 0;
 	-webkit-flex: 1 1 auto;
 	-webkit-align-self: auto;
@@ -156,3 +138,5 @@ html {
 	}
 
 }
+
+/*.map-app { display: none;}*/

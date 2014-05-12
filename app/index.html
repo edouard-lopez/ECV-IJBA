@@ -8,14 +8,14 @@
 	<title>itineraire-dechets</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width">
-	
+
 	<!-- build:css styles/vendor.css -->
 	<link rel="stylesheet" href="lib/styles/leaflet.css">
 	<link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
 	<!-- bower:css -->
 	<!-- endbower -->
 	<!-- endbuild -->
-	
+
 	<!-- build:css styles/main.css -->
 	<link rel="stylesheet" href="styles/main.css">
 	<link rel="stylesheet" href="styles/controls.css">
@@ -27,78 +27,85 @@
 
 </head>
 <body>
-	
+
 
 	<div class="flex-container fixed-height">
-		<nav class="controls">
-		 <div class="dechets">
-			<h2>Transport des déchets</h2>
-			<div class="checkboxes">
-				<label for="centre-epci">
-					<input type="checkbox" id="centre-epci" class="toggable epci">
-					<span>Intercommunalités</span>
-				</label>
-				<label for="centre-transfert">
-					<input type="checkbox" id="centre-transfert" class="toggable transfert">
-					<span>Centre de Transfert</span>
-				</label>
-				<label for="centre-traitement">
-					<input type="checkbox" id="centre-traitement" class="toggable traitement">
-					<span>Centre de Traitement</span>
-				</label>
-				<label for="route">
-					<input type="checkbox" id="route" class="route toggable">
-					<i class="fa fa-random"></i>
-					Trajets
-				</label>
-				<label for="co2">
-					<input type="checkbox" id="co2" class="co2 ">
-					<span class="fa-stack">
-					  <i class="fa fa-cloud fa-stack-1x"></i>
-					  <i class="fa fa-cloud fa-stack-50pc fa-flip-horizontal"></i>
-					</span>
-					Quantité de CO<sub>2</sub> (<abbr title="Kilograms">kg</abbr>)
-				</label>
-				<label for="dist">
-					<input type="checkbox" id="dist" class="dist toggable">
-					<i class="fa fa-road"></i>
-					Distance (<abbr title="Kilometers">km</abbr>)
-				</label>
-			</div>
-		</div>
-		</nav>
-		<div class="map-app">
-			<div id="map" class="map"></div>
-
-			<table class="compteurs" summary="Totaux ou valeurs instantanés des mesures">
-				<tr>
-					<th>Distance parcourue</th>
-					<th>Émission de CO<sub>2</sub></th>
-					<th>Tonnes de déchets traités</th>
-				</tr>
-				<tr class="total f-container">
-					<td class="dist f-item">
-						<i class="fa fa-road"></i>
-						<span class="value">90</span> 
-						<abbr class="unit" title="Kilometer">Km</abbr>
-					</td>
-					<td class="emission f-item">
+		<div class="controls">
+			<nav class="dechets">
+				<h2>Transport des déchets</h2>
+				<div class="checkboxes">
+					<label for="centre-epci">
+						<input type="checkbox" id="centre-epci" class="toggable epci">
+						<span>Intercommunalités</span>
+					</label>
+					<label for="centre-transfert">
+						<input type="checkbox" id="centre-transfert" class="toggable transfert">
+						<span>Centre de Transfert</span>
+					</label>
+					<label for="centre-traitement">
+						<input type="checkbox" id="centre-traitement" class="toggable traitement">
+						<span>Centre de Traitement</span>
+					</label>
+					<label for="route">
+						<input type="checkbox" id="route" class="route toggable">
+						<i class="fa fa-random"></i>
+						Trajets
+					</label>
+					<label for="emission">
+						<input type="checkbox" id="emission" class="emission ">
 						<span class="fa-stack">
 						  <i class="fa fa-cloud fa-stack-1x"></i>
 						  <i class="fa fa-cloud fa-stack-50pc fa-flip-horizontal"></i>
 						</span>
-						<span class="value">180</span> 
-						<abbr class="unit" title="Kilogram">Kg</abbr>
-					</td>
-					<td class="volume f-item">
-						<abbr class="value">13692</span> 
-						<abbr class="unit" title="tonne">t</abbr>
-					</td>
-				</tr>
-			</table>
+						Émission de CO<sub>2</sub> (<abbr title="Kilograms">kg</abbr>)
+					</label>
+					<label for="qte">
+						<input type="checkbox" id="qte" class="qte toggable">
+						<i class="fa fa-tachometer"></i>
+						Quantité traitée (<abbr title="Tonnes">t</abbr>)
+					</label>
+
+					<label for="dist">
+						<input type="checkbox" id="dist" class="dist toggable">
+						<i class="fa fa-road"></i>
+						Distance (<abbr title="Kilometers">km</abbr>)
+					</label>
+				</div>
+			</nav>
+			<section class="counter">
+				<table class="compteurs" summary="Totaux ou valeurs instantanés des mesures">
+					<tr>
+						<th>Distance parcourue</th>
+						<th>Émission de CO<sub>2</sub></th>
+						<th>Tonnes de déchets traités</th>
+					</tr>
+					<tr class="total">
+						<td class="dist">
+							<!-- <i class="fa fa-road"></i> -->
+							<span class="value">-</span>
+							<abbr class="unit" title="Kilometer">km</abbr>
+						</td>
+						<td class="emission">
+							<!-- <span class="fa-stack">
+							  <i class="fa fa-cloud fa-stack-1x"></i>
+							  <i class="fa fa-cloud fa-stack-50pc fa-flip-horizontal"></i>
+							</span> -->
+							<span class="value">-</span>
+							<abbr class="unit" title="Kilogram">kg</abbr>
+						</td>
+						<td class="qte">
+							<span class="value">-</span>
+							<abbr class="unit" title="tonne">t</abbr>
+						</td>
+				</table>
+			</section>
+		</div>
+
+		<div class="map-app">
+			<div id="map" class="map"></div>
 		</div>
 		<div class="flow-app">
-			Sankey Graph
+			<!-- Sankey Graph -->
 		</div>
 	</div>
 

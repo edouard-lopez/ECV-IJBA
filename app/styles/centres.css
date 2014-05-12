@@ -83,14 +83,20 @@
     stroke: hsl(15, 87%, 50%);
 }
 
-svg .co2, svg .dist {
+ svg .emission
+,svg .qte
+,svg .dist
+{
     display: none;
 }
-svg .co2.show, svg .dist.show {
+ svg .emission.show
+,svg .qte.show 
+,svg .dist.show 
+{
     display: inline;
 }
 
-svg .co2.show {
+svg .emission.show {
     fill: hsl(0, 0%, 60%);
     text-shadow: 0px 3px 3px hsl(0, 0%, 90%), 3px 0px 3px hsl(0, 0%, 90%), 
                 -3px 0px 3px hsl(0, 0%, 90%), 0px -3px 3px hsl(0, 0%, 90%),
