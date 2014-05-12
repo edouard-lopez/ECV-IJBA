@@ -85,3 +85,61 @@ $('input').change(function () {
 	toggleRoute(type, $(this).prop('checked'));
 });
 
+
+/**
+ * Update counter with data from given entity
+ * @param  {string} id entity id (used as selector)
+ * @return {void}    directly update UI
+ */
+function updateCounter(id) {
+	$('.emission .value').text(function () {
+		return sumData('svg text' + '.' + idify(id) + '.emission');
+	});
+	$('.qte .value').text(function () {
+		return sumData('svg text' + '.' + idify(id) + '.qte');
+	});
+	$('.dist .value').text(function () {
+		return sumData('svg text' + '.' + idify(id) + '.dist');
+	});
+}
+
+/**
+ * Highlight entity's area
+ * @param  {string} eid entity's id
+ * @return {void}    directly update UI
+ */
+function highlightEntity(eid) {
+	// reset style on others elements
+	d3.selectAll('.entity').classed('active', false);
+
+	// apply style to element(s)
+	d3.select('.entity.' + eid).classed('active', true);
+}
+
+/**
+ * Show entity's *label*
+ * @param  {string} eid entity's id
+ * @return {void}    directly update UI
+ */
+function showEntityLabel(eid) {
+	d3.selectAll('.entity-label').classed('show', false);
+	d3.selectAll('.entity-label.' + eid).classed('show', true);
+}
+
+/**
+ * Show entity's *routes*
+ * @param  {string} eid entity's id
+ * @return {void}    directly update UI
+ */
+function showEntityRoute(eid) {
+	d3.selectAll('.route')
+		.classed('show', false)
+		.attr('marker-mid', null)
+		.attr('marker-end', null)
+	;
+	d3.selectAll('.route.' + eid)
+		.classed('show', true)
+		.attr('marker-mid', 'url(#arw-mid)')
+		.attr('marker-end', 'url(#arw-end)')
+	;
+}
