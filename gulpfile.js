@@ -5,20 +5,45 @@ var gulp = require('gulp');
 var open = require('open');
 var wiredep = require('wiredep').stream;
 
+var paths = {
+    appDir: 'app/',
+    buildDir: 'dist/',
+    scripts: {
+        dir: 'app/scripts/',
+        src:  'app/scripts/**/*.js',
+        dest: 'dist/js'
+    },
+    styles: {
+        dir: 'app/styles/',
+        src:  'app/styles/**/*.scss',
+        dest: 'dist/styles'
+    },
+    images: {
+        dir: 'app/images',
+        src: 'app/images/**/*',
+        dest: 'dist/images',
+    }
+};
+
+
+var gulp = require('gulp');
+var sass = require('gulp-sass');
+
 // Load plugins
 var $ = require('gulp-load-plugins')();
 
-// Styles
 gulp.task('styles', function () {
-    return gulp.src(['app/styles/*.css'])
-        .pipe($.autoprefixer('last 1 version'))
-        .pipe(gulp.dest('app/styles'))
-        .pipe($.size());
+    gulp.src([paths.styles.src])
+        .pipe(sass({
+            style: 'expanded',
+            errLogToConsole: true
+        }))
+        .pipe(gulp.dest(paths.styles.dir));
 });
 
 // Scripts
 gulp.task('scripts', function () {
-    return gulp.src(['app/scripts/**/*.js'])
+    return gulp.src([paths.scripts.src])
         .pipe($.jshint('.jshintrc'))
         .pipe($.jshint.reporter('default'))
         .pipe($.size());
@@ -60,8 +85,8 @@ gulp.task('images', function () {
 // Data
 gulp.task('data', function () {
     return gulp.src([
-            'app/scripts/**/*.csv',
-            'app/scripts/**/*.json'])
+            paths.scripts.dir + '/**/*.csv',
+            paths.scripts.dir + '/**/*.json'])
         .pipe(gulp.dest('dist/scripts'))
         .pipe($.size());
 });
@@ -105,12 +130,12 @@ gulp.task('wiredep', function () {
             directory: 'app/bower_components',
             ignorePath: 'app/bower_components/'
         }))
-        .pipe(gulp.dest('app/styles'));
+        .pipe(gulp.dest(paths.styles.dir));
 
     gulp.src('app/*.html')
         .pipe(wiredep({
             directory: 'app/bower_components',
-            ignorePath: 'app/'
+            ignorePath: paths.appDir
         }))
         .pipe(gulp.dest('app'));
 });
@@ -120,23 +145,23 @@ gulp.task('watch', ['connect', 'serve'], function () {
     // Watch for changes in `app` folder
     gulp.watch([
         'app/*.html',
-        'app/styles/**/*.css',
-        'app/scripts/**/*.js',
-        'app/images/**/*'
+        paths.styles.src,
+        paths.scripts.src,
+        paths.images.src
     ], function (event) {
     	console.log('reload');
         return gulp.src(event.path)
             .pipe($.connect.reload());
     });
 
-    // Watch .css files
-    gulp.watch('app/styles/**/*.css', ['styles']);
+    // Watch .scss files
+    gulp.watch(paths.styles.src, ['styles']);
 
     // Watch .js files
-    gulp.watch('app/scripts/**/*.js', ['scripts']);
+    gulp.watch(paths.scripts.src, ['scripts']);
 
     // Watch image files
-    gulp.watch('app/images/**/*', ['images']);
+    gulp.watch(paths.images.src, ['images']);
 
     // Watch bower files
     gulp.watch('bower.json', ['wiredep']);

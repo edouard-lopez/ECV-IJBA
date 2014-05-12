@@ -13,6 +13,7 @@
     "gulp-imagemin": "~0.1.4",
     "gulp-jshint": "~1.4.0",
     "gulp-load-plugins": "~0.3.0",
+    "gulp-sass": "^0.7.1",
     "gulp-size": "~0.1.2",
     "gulp-uglify": "~0.2.1",
     "gulp-useref": "~0.2.1",

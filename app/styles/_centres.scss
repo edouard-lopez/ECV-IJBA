@@ -1,0 +1,117 @@
+.centre {
+  fill: hsl(15, 87%, 55%);
+  &.from-epci {
+    &:hover, &.highlight {
+      fill: hsl(15, 87%, 55%);
+    }
+  }
+  &.to-epci {
+    &:hover, &.highlight {
+      fill: hsl(15, 87%, 55%);
+    }
+  }
+  &.from-transfert {
+    &:hover, &.highlight {
+      fill: hsl(45, 100%, 52%);
+    }
+  }
+  &.to-transfert {
+    &:hover, &.highlight {
+      fill: hsl(45, 100%, 52%);
+    }
+  }
+  &.from-traitement {
+    &:hover, &.highlight {
+      fill: hsl(85, 53%, 50%);
+    }
+  }
+  &.to-traitement {
+    &:hover, &.highlight {
+      fill: hsl(85, 53%, 50%);
+    }
+  }
+}
+
+.route, #arw-mid, #arw-end {
+  opacity: 0;
+  overflow: visible;
+  transition: opacity .5s;
+}
+
+.centre {
+  > {
+    .label {
+      opacity: 0;
+      overflow: visible;
+      transition: opacity .5s;
+    }
+    label {
+      fill: hsl(0, 0%, 100%);
+    }
+  }
+  &:hover > .label {
+    fill: hsl(0, 0%, 0%);
+    opacity: 1;
+  }
+}
+
+.route {
+  fill: transparent;
+  stroke: transparent;
+  stroke-width: 2;
+  transition: fill .5s, stroke .5s;
+  &.arc.show {
+    /*stroke-width: 3px;*/
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-miterlimit: 4;
+    stroke-opacity: 1;
+    stroke-dashoffset: 0;
+  }
+  &.show {
+    fill: none;
+    stroke: hsl(191, 100%, 43%);
+    stroke-width: 2;
+    opacity: 1;
+  }
+}
+
+#arw-mid, #arw-end {
+  fill: none;
+  stroke: hsl(191, 100%, 43%);
+  stroke-width: 2;
+  opacity: 1;
+}
+
+.route.show {
+  stroke: #ffc40a;
+}
+
+#arw-mid, #arw-end {
+  stroke: hsl(16, 87%, 55%);
+  stroke: hsl(85, 53%, 50%);
+}
+
+#arw-mid {
+  fill: none;
+  stroke: hsl(15, 87%, 70%);
+}
+
+#arw-end {
+  fill: none;
+  stroke: hsl(15, 87%, 70%);
+  stroke: hsl(15, 87%, 50%);
+}
+
+svg {
+  .emission, .qte, .dist {
+    display: none;
+  }
+  .emission.show, .qte.show, .dist.show {
+    display: inline;
+  }
+  .emission.show {
+    fill: hsl(0, 0%, 60%);
+    text-shadow: 0px 3px 3px hsl(0, 0%, 90%), 3px 0px 3px hsl(0, 0%, 90%), -3px 0px 3px hsl(0, 0%, 90%), 0px -3px 3px hsl(0, 0%, 90%), -3px 0px 3px hsl(0, 0%, 90%), 0px -3px 3px hsl(0, 0%, 90%);
+  }
+}

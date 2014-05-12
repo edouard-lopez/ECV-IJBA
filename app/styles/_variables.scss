@@ -1,0 +1,29 @@
+$constructive: #00AF89; // green
+$progressive: #347BFF; // blue
+$destructive: #D11D13; // red
+
+$medSeverity: #FF5D00; // orange
+$lowSeverity: #FFB50D; // yellow
+
+// Dark accent color values are (color) HSB, brightness -30
+
+$colorVoid: #fff;
+$colorShadow: #ddd; // ColorGray14
+$colorDisabled: #ccc; // ColorGray13
+$colorPlaceholder: #aaa; // ColorGray10
+$colorHover: #999; // ColorGray9 (Mouseover)
+$colorNeutral: #777; // ColorGray7
+$colorActive: #555; // ColorGray5 (Click)
+
+$gray: hsl(0, 0%, 67%);
+$grayLight: hsl(0, 0%, 82%);
+
+$thinBorder: 1px;
+$thickBorder: 3px;
+$textShadow: 1px 1px 1px #fff;
+$defaultBtnBorder: $thinBorder solid $colorDisabled;
+$btnBorderBottom: $thickBorder solid $colorShadow;
+$borderColor: $gray;
+
+$togglePadding: 1.6em;
+$toggleHeight: 1.2em;
