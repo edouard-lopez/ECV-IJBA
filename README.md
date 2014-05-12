@@ -44,7 +44,7 @@ yo leaflet
 ```
 Then install others dependencies:
 ```bash
-npm install --save-dev topojson generator-leaflet underscore gulp
+npm install --save-dev topojson generator-leaflet underscore gulp gulp-sass
 bower install --save topojson font-awesome d3-plugins
 ```
 Finish by running `gulp` for building and gulp watch for preview :
