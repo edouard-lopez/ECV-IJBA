@@ -14,6 +14,10 @@ Start by cloning the project repository:
 git clone https://github.com/edouard-lopez/ECV-IJBA.git ecv-ijba
 cd ecv-ijba
 ```
+And install some tooling:
+```bash
+npm install -g yo bower grunt-cli gulp topojson 
+```
 
 # Getting started 
 
