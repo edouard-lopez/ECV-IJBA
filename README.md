@@ -1,5 +1,5 @@
 # ECV-IJBA
- 
+
 ECV-IJBA is dataviz project to visualize trash mobility in Gironde area, with students from:
 
 * [ÉCV](http://ecv.fr/), _School for Visual Communication_ and,
@@ -16,10 +16,10 @@ cd ecv-ijba
 ```
 And install some tooling:
 ```bash
-npm install -g yo bower grunt-cli gulp topojson 
+npm install -g yo bower grunt-cli gulp topojson
 ```
 
-# Getting started 
+# Getting started
 
 Install project dependecy using `npm` and `bower`:
 ```bash
