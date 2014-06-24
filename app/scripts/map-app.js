@@ -235,6 +235,7 @@ function mapApp() {
 				})
 			;
 			routePath
+				// use line between centers
 				// .attr('class', function (d) {
 				// 	return [
 				// 		getEpci(idify(d.depart)), getEpci(idify(d.arrivee)),
@@ -243,6 +244,8 @@ function mapApp() {
 				// 		'to-' + typeCentre[d.niv_arrivee],
 				// 	].join(' ');
 				// })
+
+				// use curves between centers
 				.attr('d', function (d) {
 					var source = projectDepart(d);
 					var target = projectArrivee(d);
