@@ -6,7 +6,8 @@
     "jquery": "~2.1.0",
     "font-awesome": "~4.0.3",
     "d3-plugins": "*",
-    "d3": "~3.4.8"
+    "d3": "~3.4.8",
+    "es6-promise": "~1.0.0"
   },
   "devDependencies": {
     "font-awesome": "~4.0.3"

@@ -58,6 +58,7 @@ function mapApp() {
 
 
 	function drawEntities() {
+		return new Promise(function (resolve, reject) {
 		d3.json('scripts/gironde-epci.topo.json', function (dataset) {
 		var geoData = topojson.feature(dataset, dataset.objects['gironde-epci.geo']);
 		var bounds = d3.geo.bounds(geoData);
@@ -129,6 +130,8 @@ function mapApp() {
 
 		map.on('viewreset', reset);
 		reset();
+		resolve();
+		});
 	});
 	}
 
@@ -308,6 +311,5 @@ function mapApp() {
 	}
 
 
-	drawEntities();
-	drawTransport();
+	drawEntities().then(drawTransport);
 }
