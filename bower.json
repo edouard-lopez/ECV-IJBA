@@ -5,7 +5,8 @@
     "topojson": "~1.6.7",
     "jquery": "~2.1.0",
     "font-awesome": "~4.0.3",
-    "d3-plugins": "*"
+    "d3-plugins": "*",
+    "d3": "~3.4.8"
   },
   "devDependencies": {
     "font-awesome": "~4.0.3"
