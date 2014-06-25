@@ -1,11 +1,11 @@
 #!/usr/bin/env make
 # DESCRIPTION
-#   Extract Chinese articles title from French articles
+#   Pull and extract data to rebuild the project. There is some data that need human intervention...
 #
 # USAGE
-#   cd ~/cfdict/resources/script/wikipedia/ && make -f wikipedia.makefile
+#   cd ~/projects/ecv-ijba/ && make -f dechets.ecv-ijba.mk
 #
-# @author: Édouard Lopez <dev+cfdict@edouard-lopez.com>
+# @author: Édouard Lopez <dev+ecv-ijba@edouard-lopez.com>
 
 ifneq (,)
 This makefile requires GNU Make.
@@ -117,18 +117,18 @@ tmp/france-%-shp.zip: tmp ${contours-france}
 	@curl --output tmp/france-epci-100m-shp.zip http://osm13.openstreetmap.fr/~cquest/openfla/export/epci-20140306-100m-shp.zip
 	unzip tmp/france-epci-100m-shp.zip -d ${contours-france}
 
-tmp: 
+tmp:
 	mkdir tmp
 
-${contours-france}: 
+${contours-france}:
 	mkdir ${contours-france}/
 
-${contours-gironde}: 
+${contours-gironde}:
 	mkdir ${contours-gironde}/
 
 # gulp: https://github.com/gulpjs/gulp/blob/master/docs/getting-started.md#getting-started
 # leaflet: https://www.npmjs.org/package/generator-leaflet
-install: 
+install:
 	@printf "Installing system-wide (Ubuntu)...\n"
 	sudo apt-get install gdal-{bin,contrib}
 	sudo npm install -g topojson underscore gulp
