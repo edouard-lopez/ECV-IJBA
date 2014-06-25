@@ -55,3 +55,7 @@ Finish by running `gulp` for building and gulp watch for preview :
 ```bash
 gulp watch
 ```
+
+### License
+
+Project under [GPLv3 license](http://choosealicense.com/licenses/gpl-3.0/).
