@@ -6,7 +6,7 @@
 * @param  {[type]} undefined [description]
 * @return {[type]}           [description]
 */
-(function (window, document, L, undefined) {
+(function (window, document, L, d3) {
 	'use strict';
 
 		/**
@@ -16,4 +16,4 @@
 		var _centres = [], _links = [];
 	flowApp(_centres, _links);
 	mapApp(_centres, _links);
-}(window, document, L));
+}(window, document, L, d3));
