@@ -23,7 +23,8 @@ function mapApp() {
 
 
 	/* add default stamen tile layer */
-	new L.tileLayer('http://{s}.tiles.mapbox.com/v3/examples.map-vyofok3q/{z}/{x}/{y}.png', {
+	new L.tileLayer('http://{s}.tiles.mapbox.com/v3/{id}/{z}/{x}/{y}.png', {
+		id: 'edouard-lopez.ik52o4kd',
 		minZoom: 0,
 		maxZoom: 18,
 		attribution: 'Map data © <a href="http://www.openstreetmap.org">OpenStreetMap contributors</a>'
