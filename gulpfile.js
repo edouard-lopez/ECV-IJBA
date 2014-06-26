@@ -6,6 +6,9 @@ var open = require('open');
 var wiredep = require('wiredep').stream;
 var port = 9820; // @custom
 
+var project = {
+	name: 'ecv-ijba'
+}
 var paths = {
     appDir: 'app/',
     buildDir: 'dist/',
@@ -166,4 +169,27 @@ gulp.task('watch', ['connect', 'serve'], function () {
 
     // Watch bower files
     gulp.watch('bower.json', ['wiredep']);
+});
+
+// @custom
+gulp.task('deploy', ['build'] , function() {
+	var rsync = require('rsyncwrapper').rsync;
+	var gutil = require('gulp-util');
+
+	rsync({
+		ssh: true,
+		src: paths.buildDir,
+		dest: '/srv/edouard-lopez/demo/'+project.name,
+		host: 'ed8@vm-ed',
+		port: '822',
+		recursive: true,
+		syncDest: true,
+		args: ['--verbose'],
+		exclude: ['.git*','*.scss','node_modules'],
+	}, function(error, stdout, stderr, cmd) {
+		gutil.log(cmd);
+		gutil.log(stdout);
+		gutil.log(error);
+		gutil.log(stderr);
+	});
 });
