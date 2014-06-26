@@ -37,7 +37,7 @@ body, html {
 }
 
 .map-app {
-  min-width: 40%;
+  min-width: 50%;
   .map {
     min-width: 100%;
     min-height: 600px;
@@ -45,7 +45,7 @@ body, html {
 }
 
 .flow-app {
-  width: auto;
+  // width: auto;
   max-width: 40%;
 }
 
@@ -74,6 +74,10 @@ body, html {
   .flex-container {
     -webkit-flex-direction: column;
     flex-direction: column;
+    .controls, .map-app, .flow-app {
+    	width: 96%;
+    	margin: 2%;
+    }
     td > * {
       display: block;
     }
@@ -90,6 +94,10 @@ body, html {
   /*use flex properties ?*/
   margin: auto 1em;
   margin-top: 1em;
+}
+.map-app {
+	margin-left: 0;
+	margin-right: 0;
 }
 
 .controls {

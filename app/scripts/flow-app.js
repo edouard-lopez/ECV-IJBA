@@ -36,7 +36,7 @@ function addLink(fromData, centres, _links) {
 
 function flowApp() {
 	var margin = {top: 1, right: 1, bottom: 6, left: 1},
-			width = 600 - margin.left - margin.right,
+			width = 360 - margin.left - margin.right,
 			height = 600 - margin.top - margin.bottom;
 
 	var formatNumber = d3.format(",.0f"),
