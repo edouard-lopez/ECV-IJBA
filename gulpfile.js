@@ -4,6 +4,7 @@
 var gulp = require('gulp');
 var open = require('open');
 var wiredep = require('wiredep').stream;
+var port = 9820; // @custom
 
 var paths = {
     appDir: 'app/',
@@ -114,13 +115,13 @@ gulp.task('default', ['clean'], function () {
 // Connect
 gulp.task('connect', $.connect.server({
     root: ['app'],
-    port: 9000,
+    port: port,
     livereload: true
 }));
 
 // Open
 gulp.task('serve', ['connect'], function() {
-  open("http://localhost:9000");
+  open("http://localhost:"+port);
 });
 
 // Inject Bower components
