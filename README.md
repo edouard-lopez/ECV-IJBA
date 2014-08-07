@@ -7,6 +7,8 @@ ECV-IJBA is dataviz project to visualize trash mobility in Gironde area, with st
 
 ![dataviz preview](./preview.04-sankey-diagram.png)
 
+[TOC]
+
 # Install
 
 Start by cloning the project repository:
