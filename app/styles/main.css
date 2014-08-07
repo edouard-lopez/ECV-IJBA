@@ -78,7 +78,7 @@ svg .emission.show {
 
 .controls {
   max-width: 15%;
-  min-width: 18em;
+  min-width: 16em;
   color: #777; }
   .controls .checkboxes {
     padding-top: 8px;
@@ -280,13 +280,12 @@ body, html {
   -moz-osx-font-smoothing: grayscale; }
 
 .map-app {
-  min-width: 40%; }
+  min-width: 50%; }
   .map-app .map {
     min-width: 100%;
     min-height: 600px; }
 
 .flow-app {
-  width: auto;
   max-width: 40%; }
 
 .flex-container {
@@ -313,6 +312,9 @@ body, html {
   .flex-container {
     -webkit-flex-direction: column;
     flex-direction: column; }
+    .flex-container .controls, .flex-container .map-app, .flex-container .flow-app {
+      width: 96%;
+      margin: 2%; }
     .flex-container td > * {
       display: block; } }
 
@@ -325,6 +327,10 @@ body, html {
   /*use flex properties ?*/
   margin: auto 1em;
   margin-top: 1em; }
+
+.map-app {
+  margin-left: 0;
+  margin-right: 0; }
 
 .controls {
   -webkit-order: 0;
