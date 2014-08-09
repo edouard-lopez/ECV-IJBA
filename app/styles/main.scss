@@ -136,5 +136,13 @@ body, html {
   }
 }
 
-
-/*.map-app { display: none;}*/
+.metadata {
+	background: none repeat scroll 0% 0% hsla(0, 0%, 100%, 0.7);
+	margin: 0;
+	p.leaflet-control-attribution.leaflet-control {
+		padding: 0;
+		padding-left: .5em;
+		margin: 0;
+		font: 12px/1.75 "Helvetica Neue",Arial,Helvetica,sans-serif;
+	}
+}

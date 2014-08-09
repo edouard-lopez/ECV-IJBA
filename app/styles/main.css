@@ -363,4 +363,11 @@ body, html {
     width: 100%;
     -moz-box-sizing: border-box; } }
 
-/*.map-app { display: none;}*/
+.metadata {
+  background: none repeat scroll 0% 0% rgba(255, 255, 255, 0.7);
+  margin: 0; }
+  .metadata p.leaflet-control-attribution.leaflet-control {
+    padding: 0;
+    padding-left: 0.5em;
+    margin: 0;
+    font: 12px/1.75 "Helvetica Neue", Arial, Helvetica, sans-serif; }
