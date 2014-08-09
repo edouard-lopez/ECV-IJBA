@@ -5,7 +5,7 @@ ECV-IJBA is dataviz project to visualize trash mobility in Gironde area, with st
 * [ÉCV](http://ecv.fr/), _School for Visual Communication_ and,
 * [IJBA](http://www.ijba.u-bordeaux3.fr/), _Institute for Journalism in Bordeaux Aquitania_.
 
-![dataviz preview](./preview.04-sankey-diagram.png)
+![dataviz preview](./preview.png)
 
 [TOC]
 
