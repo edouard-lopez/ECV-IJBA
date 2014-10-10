@@ -60,4 +60,4 @@ gulp watch
 
 ### License
 
-Project under [GPLv3 license](http://choosealicense.com/licenses/gpl-3.0/).
+Project under [MIT license](http://choosealicense.com/licenses/mit/).
